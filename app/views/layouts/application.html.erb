@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<div>
+	<div class="header">sup</div>
+	<body>
+		<div class="main">
+			<!-- <div class="notice"><#%= notice %></div>
+			<div class="alert"><#%= alert %></div> -->
+		</div>
+		<div class="right">
+			<% if notice %>
+				<div class="valid_notice_right"><%= notice %></div>
+			<% elsif alert %>
+				<div class="invalid_notice_right"><%= alert %></div>
+			<% end %>
+				<% if user_signed_in? %>
+				Logged in as <strong><%= current_user.username %></strong>.
+				<%= link_to 'Edit profile', edit_user_registration_path %> |
+				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+				<% else %>
+				<%= link_to "Sign up", new_user_registration_path %> |
+				<%= link_to "Login", new_user_session_path %> |
+				<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>, 
+				<%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %>, or
+				<%= link_to "Github", user_omniauth_authorize_path(:github) %>
+				<% end %>
+				<%= yield %>
+			</div>
+		<div class="footer">dawg</div>
+	</body>
+</div>
+</html>
