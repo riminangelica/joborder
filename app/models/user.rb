@@ -7,8 +7,15 @@ class User < ActiveRecord::Base
          :timeoutable, :confirmable, :token_authenticatable,
          :omniauthable, :omniauth_providers => [:twitter, :facebook, :github]
 
+  has_many :projects
+  has_many :orders
+  has_many :services
+  has_many :categories, :through => :services
+
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :confirmed_at
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+                  :username, :confirmed_at,
+                  :year, :course, :school, :organization, :category_id
   # attr_accessible :title, :body
 
   validates_presence_of :username

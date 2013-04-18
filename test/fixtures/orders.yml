@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category_id: 1
+  user_id: 1
+  first_name: MyString
+  surname: MyString
+  email: MyString
+  mobile: MyString
+  technicalities: MyText
+  aesthetics: MyText
+  status: MyString
+  target_date: 2013-04-17
+  start_date: 2013-04-17
+  number_of_workers: 1
+  service_id: 1
+
+two:
+  category_id: 1
+  user_id: 1
+  first_name: MyString
+  surname: MyString
+  email: MyString
+  mobile: MyString
+  technicalities: MyText
+  aesthetics: MyText
+  status: MyString
+  target_date: 2013-04-17
+  start_date: 2013-04-17
+  number_of_workers: 1
+  service_id: 1

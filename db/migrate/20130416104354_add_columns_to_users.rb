@@ -3,7 +3,7 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :year, :integer
     add_column :users, :course, :string
     add_column :users, :school, :string
-    add_column :users, :organization, :array
+    add_column :users, :organization, :string
     add_column :users, :category_id, :integer
   end
 end

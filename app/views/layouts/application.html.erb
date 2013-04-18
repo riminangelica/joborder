@@ -16,8 +16,8 @@
 		<div class="right">
 			<% if notice %>
 				<div class="valid_notice_right"><%= notice %></div>
-			<% elsif alert %>
-				<div class="invalid_notice_right"><%= alert %></div>
+
+				<div class="notice_right"><%= alert %></div>
 			<% end %>
 				<% if user_signed_in? %>
 				Logged in as <strong><%= current_user.username %></strong>.
