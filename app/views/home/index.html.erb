@@ -1,13 +1,241 @@
+<html>
+<head>
+
+	<title>Blog</title>
+	<%= stylesheet_link_tag    "userhome", :media => "all" %>
+	<!-- <#%= javascript_include_tag "userhome" %> -->
+	<%= csrf_meta_tags %>
+</head>
+<%content_for :projhist do %>
+<% unless user_signed_in? %>
+<!-- NOT SIGNED IN -->
 <h1>HELLO THEEEREEEE ~(-_-~)</h1>
+<% else %>
+<!-- SIGNED IN -->
 
-<%= select_tag "skills", @values_for_select.html_safe, multiple: true %>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $("#skills")
-
-
-  });
-
-</script>
+<h1>Project History</h1>
+<h2>Pending</h2>
+<div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Project Id
+                        </td>
+                        
+                        <td>
+                           Category
+                        </td>
+                        <td>
+                        	Title
+                        </td>
+                        <td>
+                        	Description
+                        </td>
+                        <td>
+                        	Link
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                   <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2> In Progress</h2>
+            <div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Project Id
+                        </td>
+                        
+                        <td>
+                           Category
+                        </td>
+                        <td>
+                        	Title
+                        </td>
+                        <td>
+                        	Description
+                        </td>
+                        <td>
+                        	Link
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                   <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2>Finished</h2>
+            <div class="CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Project Id
+                        </td>
+                        
+                        <td>
+                           Category
+                        </td>
+                        <td>
+                        	Title
+                        </td>
+                        <td>
+                        	Description
+                        </td>
+                        <td>
+                        	Link
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                   <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            Web Service
+                        </td>
+                        <td>
+                            Ateneo LEX Website
+                        </td>
+                        <td>
+                            Cool cool cool
+                        </td>
+                        <td>
+                           http://sup.com
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+<%end%>
+<%end%>
