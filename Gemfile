@@ -34,6 +34,8 @@ gem 'omniauth-facebook'
 # Sign in with github
 gem 'omniauth-github'
 
+gem 'rails_admin'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

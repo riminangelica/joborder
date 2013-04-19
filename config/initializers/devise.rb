@@ -23,7 +23,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [ :username ]
+  # config.authentication_keys = [ :email ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -35,12 +35,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :username ]
+  config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :username ]
+  config.strip_whitespace_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -82,7 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "8a55ae56c32579d51fc1abc6869f24631494d2edae416f73fec9c16738da92183fd838c237ed30d7c3b76f74b874c9180958460bd7bd4706d2e871bcab336d90"
+  # config.pepper = "69e1447c3f51d7cd29fd6888447b9a653398ae81d5337c4307d7f8e1df57feffc0d524762af13766dd3a5c578ab47c9f0dcf8b7254769bb68fd8333332d842c3"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
