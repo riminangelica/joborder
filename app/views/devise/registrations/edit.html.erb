@@ -21,37 +21,37 @@
     
     <script type="text/javascript">
     $(document).ready(function() {
-      $("#courses-ADMU").hide();
-      $("#courses-DLSU").hide();
-      $("#courses-UPD").hide();
-      $("#courses-UST").hide();
+      $("#ADMU").hide();
+      $("#DLSU").hide();
+      $("#UPD").hide();
+      $("#UST").hide();
 
       $('#schools').val(onchange=function(){
         var schools = $('#schools');
         
         if (schools.val()==0){
-         $("#courses-ADMU").show();
-         $("#courses-DLSU").hide(); 
-         $("#courses-UPD").hide();
-         $("#courses-UST").hide(); 
+         $("#ADMU").show();
+         $("#DLSU").hide(); 
+         $("#UPD").hide();
+         $("#UST").hide(); 
        }
        else if (schools.val()==1){
-         $("#courses-ADMU").hide();
-         $("#courses-DLSU").show(); 
-         $("#courses-UPD").hide();
-         $("#courses-UST").hide(); 
+         $("#ADMU").hide();
+         $("#DLSU").show(); 
+         $("#UPD").hide();
+         $("#UST").hide(); 
        }
        else if (schools.val()==2){
-         $("#courses-ADMU").hide();
-         $("#courses-DLSU").hide(); 
-         $("#courses-UPD").show();
-         $("#courses-UST").hide(); 
+         $("#ADMU").hide();
+         $("#DLSU").hide(); 
+         $("#UPD").show();
+         $("#UST").hide(); 
        }
        else if (schools.val()==3){
-         $("#courses-ADMU").hide();
-         $("#courses-DLSU").hide(); 
-         $("#courses-UPD").hide();
-         $("#courses-UST").show();
+         $("#ADMU").hide();
+         $("#DLSU").hide(); 
+         $("#UPD").hide();
+         $("#UST").show();
        }
 
      });
@@ -65,10 +65,25 @@
                                                 ["University of Santo Tomas",3]], {}, 
                                                 :id => "schools") %>
 
-    <div id="courses-ADMU"><%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT',1],['BS CONYO',2]]) %></div>
-    <div id="courses-DLSU"><%= f.label :course %> <%= f.select(:course, [['BS RICH KID',1],['BS COOL KID',2]]) %></div>
-    <div id="courses-UPD"><%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR',1],['BS NG BAYAN',2]]) %></div>
-    <div id="courses-UST"><%= f.label :course %> <%= f.select(:course, [['BS ARCHI',1],['BS BAHA LAGI',2]]) %></div>
+    <div id="ADMU">
+      <%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT',1],['BS CONYO',2]]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["Org 0",0],["Org 1",1],["Org2",2]]) %>
+    </div>
+
+    <div id="DLSU">
+      <%= f.label :course %> <%= f.select(:course, [['BS RICH KID',1],['BS COOL KID',2]]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["OrgL 0",0],["OrgL 1",1],["OrgL 2",2]]) %>
+    </div>
+
+    <div id="UPD">
+      <%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR',1],['BS NG BAYAN',2]]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["OrgUP 0",0],["OrgUP 1",1],["OrgUP 2",2]]) %>
+    </div>
+
+    <div id="UST">
+      <%= f.label :course %> <%= f.select(:course, [['BS ARCHI',1],['BS BAHA LAGI',2]]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["OrgUST 0",0],["OrgUST 1",1],["OrgUST 2",2]]) %>
+    </div>
 
     <div><%= f.label :organization %> <%= f.text_field :organization %></div>
 
