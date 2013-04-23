@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130423035407) do
 
   create_table "admins", :force => true do |t|
@@ -30,6 +31,9 @@ ActiveRecord::Schema.define(:version => 20130423035407) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+=======
+ActiveRecord::Schema.define(:version => 20130423013153) do
+>>>>>>> d772ed4c6eae1c8055d49fc732db8495c893e5ab
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -50,29 +54,41 @@ ActiveRecord::Schema.define(:version => 20130423035407) do
     t.date     "target_date"
     t.date     "start_date"
     t.integer  "number_of_workers"
+<<<<<<< HEAD
     t.integer  "service_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "project_name"
     t.text     "project_description"
     t.text     "skills"
+=======
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+>>>>>>> d772ed4c6eae1c8055d49fc732db8495c893e5ab
   end
 
   create_table "projects", :force => true do |t|
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "title"
-    t.text     "description",  :limit => 255
+    t.text     "description"
     t.string   "project_link"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  create_table "services", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -100,7 +116,6 @@ ActiveRecord::Schema.define(:version => 20130423035407) do
     t.string   "school"
     t.string   "organization"
     t.integer  "category_id"
-    t.integer  "service_id"
     t.string   "first_name"
     t.string   "middle_initial"
     t.string   "surname"

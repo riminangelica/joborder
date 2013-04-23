@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
 
   has_many :projects
   has_many :orders
-  has_many :services
-  has_many :categories, :through => :services
+  belongs_to :category
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
