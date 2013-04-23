@@ -40,25 +40,25 @@
       $('#schools').val(onchange=function(){
         var schools = $('#schools');
         
-        if (schools.val()==0){
+        if (schools.val()=="Ateneo de Manila University"){
          $("#ADMU").show();
          $("#DLSU").hide(); 
          $("#UPD").hide();
          $("#UST").hide(); 
        }
-       else if (schools.val()==1){
+       else if (schools.val()=="De La Salle University"){
          $("#ADMU").hide();
          $("#DLSU").show(); 
          $("#UPD").hide();
          $("#UST").hide(); 
        }
-       else if (schools.val()==2){
+       else if (schools.val()=="University of the Philippines - Diliman"){
          $("#ADMU").hide();
          $("#DLSU").hide(); 
          $("#UPD").show();
          $("#UST").hide(); 
        }
-       else if (schools.val()==3){
+       else if (schools.val()=="University of Santo Tomas"){
          $("#ADMU").hide();
          $("#DLSU").hide(); 
          $("#UPD").hide();
@@ -70,30 +70,30 @@
     </script>
 
     <%= f.label :school %> <%= f.select(:school, [
-                                                ["Ateneo de Manila University",0],
-                                                ["De La Salle University",1],
-                                                ["University of the Philippines - Diliman",2],
-                                                ["University of Santo Tomas",3]], {}, 
+                                                ["Ateneo de Manila University"],
+                                                ["De La Salle University"],
+                                                ["University of the Philippines - Diliman"],
+                                                ["University of Santo Tomas"]], {}, 
                                                 :id => "schools") %>
 
     <div id="ADMU">
-      <%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT',1],['BS CONYO',2]]) %>
-      <%= f.label :organization %> <%= f.select(:organization, [["Org 0",0],["Org 1",1],["Org2",2]]) %>
+      <%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]]) %>
     </div>
 
     <div id="DLSU">
-      <%= f.label :course %> <%= f.select(:course, [['BS RICH KID',1],['BS COOL KID',2]]) %>
-      <%= f.label :organization %> <%= f.select(:organization, [["OrgL 0",0],["OrgL 1",1],["OrgL 2",2]]) %>
+      <%= f.label :course %> <%= f.select(:course, [['BS RICH KID'],['BS COOL KID']]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]]) %>
     </div>
 
     <div id="UPD">
-      <%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR',1],['BS NG BAYAN',2]]) %>
-      <%= f.label :organization %> <%= f.select(:organization, [["OrgUP 0",0],["OrgUP 1",1],["OrgUP 2",2]]) %>
+      <%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]]) %>
     </div>
 
     <div id="UST">
-      <%= f.label :course %> <%= f.select(:course, [['BS ARCHI',1],['BS BAHA LAGI',2]]) %>
-      <%= f.label :organization %> <%= f.select(:organization, [["OrgUST 0",0],["OrgUST 1",1],["OrgUST 2",2]]) %>
+      <%= f.label :course %> <%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']]) %>
+      <%= f.label :organization %> <%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]]) %>
     </div>
 
     <div><%= f.label :organization %> <%= f.text_field :organization %></div>

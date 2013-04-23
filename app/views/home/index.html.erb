@@ -16,226 +16,74 @@
 <h1>Project History</h1>
 <h2>Pending</h2>
 <div class="CSSTableGenerator" >
-                <table >
-                    <tr>
-                        <td>
-                            Project Id
-                        </td>
+  <table >
+    <tr>
+      <td>Project Id</td>
+      <td>Category</td>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Link</td>
+    </tr>
+    <!-- <#% if @project.status == "Pending" %> -->
+    <% @projects.each do |project| %>
+    <tr>
+      <td ><%= project.id %></td>
+      <td><%= project.category.name %></td>
+      <td><%= project.title %></td>
+      <td><%= project.description %></td>
+      <td><%= project.project_link %></td>
+    </tr>
+    <% end %>
+    <!-- <#% end %> -->
+  </table>
+</div>
 
-                        <td>
-                           Category
-                        </td>
-                        <td>
-                        	Title
-                        </td>
-                        <td>
-                        	Description
-                        </td>
-                        <td>
-                        	Link
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                   <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <h2> In Progress</h2>
-            <div class="CSSTableGenerator" >
-                <table >
-                    <tr>
-                        <td>
-                            Project Id
-                        </td>
-
-                        <td>
-                           Category
-                        </td>
-                        <td>
-                        	Title
-                        </td>
-                        <td>
-                        	Description
-                        </td>
-                        <td>
-                        	Link
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                   <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <h2>Finished</h2>
-            <div class="CSSTableGenerator" >
-                <table >
-                    <tr>
-                        <td>
-                            Project Id
-                        </td>
-
-                        <td>
-                           Category
-                        </td>
-                        <td>
-                        	Title
-                        </td>
-                        <td>
-                        	Description
-                        </td>
-                        <td>
-                        	Link
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                   <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            1
-                        </td>
-                        <td>
-                            Web Service
-                        </td>
-                        <td>
-                            Ateneo LEX Website
-                        </td>
-                        <td>
-                            Cool cool cool
-                        </td>
-                        <td>
-                           http://sup.com
-                        </td>
-                    </tr>
-                </table>
-            </div>
+<h2> In Progress</h2>
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>Project Id</td>
+      <td>Category</td>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Link</td>
+    </tr>
+    <!-- <#% if @project.status == "In Progress" %> -->
+    <% @projects.each do |project| %>
+    <tr>
+      <td ><%= project.id %></td>
+      <td><%= project.category.name %></td>
+      <td><%= project.title %></td>
+      <td><%= project.description %></td>
+      <td><%= project.project_link %></td>
+    </tr>
+    <% end %>
+    <!-- <#% end %> -->
+  </table>
+</div>
+<h2>Completed</h2>
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>Project Id</td>
+      <td>Category</td>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Link</td>
+    </tr>
+    <!-- <#% if @project.status == "Completed" %> -->
+    <% @projects.each do |project| %>
+    <tr>
+      <td ><%= project.id %></td>
+      <td><%= project.category.name %></td>
+      <td><%= project.title %></td>
+      <td><%= project.description %></td>
+      <td><%= project.project_link %></td>
+    </tr>
+    <% end %>
+    <!-- <#% end %> -->
+  </table>
+</div>
 
 <%end%>
 <%end%>
