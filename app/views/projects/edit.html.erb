@@ -1,0 +1,7 @@
+<%= form_for(:order, :url => { :controller => 'projects',:action => 'new'}) do |f|%> <br>
+    <%= f.label "User ID:"  %> <%= f.text_field :user_id %> <br>
+    <%= f.label "Category:" %> <%= f.collection_select(:category_id, Category.all, :id, :name)%> <br>
+    <%= f.label "Title:" %> <%= f.text_field :title %> <br>
+    <%= f.label "Description:" %> <%= f.text_area :description%> <br>
+    <%= f.label "Project Link" %> <%= f.text_field :project_link %> <br>
+<% end %>
