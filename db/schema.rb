@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417074348) do
+ActiveRecord::Schema.define(:version => 20130423013153) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20130417074348) do
     t.date     "target_date"
     t.date     "start_date"
     t.integer  "number_of_workers"
-    t.integer  "service_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
@@ -41,17 +40,24 @@ ActiveRecord::Schema.define(:version => 20130417074348) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "title"
-    t.text     "description",  :limit => 255
+    t.text     "description"
     t.string   "project_link"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  create_table "services", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -79,7 +85,6 @@ ActiveRecord::Schema.define(:version => 20130417074348) do
     t.string   "school"
     t.string   "organization"
     t.integer  "category_id"
-    t.integer  "service_id"
     t.string   "first_name"
     t.string   "middle_initial"
     t.string   "surname"

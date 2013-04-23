@@ -13,8 +13,7 @@ class CreateOrders < ActiveRecord::Migration
       t.date :target_date
       t.date :start_date
       t.integer :number_of_workers
-      t.integer :service_id
-
+      
       t.timestamps
     end
   end
