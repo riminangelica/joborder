@@ -36,6 +36,9 @@ gem 'omniauth-github'
 
 gem 'rails_admin'
 
+gem 'carrierwave'
+gem 'mini_magick'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'less-rails'

@@ -9,12 +9,14 @@
 <%content_for :projhist do %>
 <% unless user_signed_in? %>
 <!-- NOT SIGNED IN -->
+<%= link_to (image_tag "Home/JOBORDERbuttoncopy.png", :size => "300x300"), "/orders/new" %>
 <h1>HELLO THEEEREEEE ~(-_-~)</h1>
 <% else %>
 <!-- SIGNED IN -->
 
 <h1>Project History</h1>
 <h2>Pending</h2>
+<% if !@project.nil? && @project.status == "Pending" %>
 <div class="CSSTableGenerator" >
   <table >
     <tr>
@@ -24,7 +26,6 @@
       <td>Description</td>
       <td>Link</td>
     </tr>
-    <!-- <#% if @project.status == "Pending" %> -->
     <% @projects.each do |project| %>
     <tr>
       <td ><%= project.id %></td>
@@ -34,11 +35,14 @@
       <td><%= project.project_link %></td>
     </tr>
     <% end %>
-    <!-- <#% end %> -->
   </table>
 </div>
+<% else %>
+You have no pending projects.
+<% end %>
 
 <h2> In Progress</h2>
+<% if !@project.nil? && @project.status == "In Progress" %>
 <div class="CSSTableGenerator" >
   <table >
     <tr>
@@ -48,7 +52,6 @@
       <td>Description</td>
       <td>Link</td>
     </tr>
-    <!-- <#% if @project.status == "In Progress" %> -->
     <% @projects.each do |project| %>
     <tr>
       <td ><%= project.id %></td>
@@ -58,10 +61,14 @@
       <td><%= project.project_link %></td>
     </tr>
     <% end %>
-    <!-- <#% end %> -->
   </table>
 </div>
+<% else %>
+You have no projects in progress.
+<% end %>
+
 <h2>Completed</h2>
+<% if !@project.nil? && @project.status == "Completed" %>
 <div class="CSSTableGenerator" >
   <table >
     <tr>
@@ -71,7 +78,6 @@
       <td>Description</td>
       <td>Link</td>
     </tr>
-    <!-- <#% if @project.status == "Completed" %> -->
     <% @projects.each do |project| %>
     <tr>
       <td ><%= project.id %></td>
@@ -81,12 +87,13 @@
       <td><%= project.project_link %></td>
     </tr>
     <% end %>
-    <!-- <#% end %> -->
   </table>
 </div>
+<% else %>
+You have not completed any projects yet.<br>
+<% end %>
 
 <%end%>
 <%end%>
 
-<%= link_to (image_tag "Home/JOBORDERbuttoncopy.png", :size => "300x300"), "/orders/new" %>
 <%= link_to "Request new", "/projects/new" %>

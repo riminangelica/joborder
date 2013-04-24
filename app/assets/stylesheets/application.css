@@ -1,4 +1,5 @@
 /*
+ *
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -19,37 +20,27 @@
  }
  body{
  	margin: 0;
- 	background-color: #b3b3b3;
-    background-image: url('tiny_grid.png');
+ 	background-color: #fff;
  	overflow: hidden;
  	width: 100%;
  	height: 100%;
- 	font: 13px Ubuntu Light;
+ 	font: 13px Helvetica, arial, freesans, clean, sans-serif;
 	line-height: 1.4;
-
  }
 
  .header {
  	/* Provide scrollbars if needed and fix the header dimensions */
  	overflow: auto;
  	position: absolute;
-    padding-left: 10%;
- 	background: #45484d; /* Old browsers */
-    background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #45484d 0%,#000000 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+ 	background-color: #000;
  	width: 100%;
- 	height: 80px;
+ 	height: 100px;
  	color: #fff;
  	font: 20px Arial, serif;
  	float: center;
  	z-index: 2;
- 	opacity: .99;
- 	box-shadow: 0px 5px 5px #888888;
+ 	opacity: .8;
+ 	box-shadow: 0px 5px 10px #888888;
 
 
  }
@@ -60,10 +51,12 @@
  	position: absolute;
  	background-color: #71bf00;
  	width: 100%;
- 	height: 30px;
+ 	height: 50px;
  	color: #fff;
+ 	font: 20px Arial, serif;
  	float: center;
  	z-index: 2;
+ 	opacity: .9;
  	box-shadow: 0px -5px 10px #888888;
  	bottom: 0;
 
@@ -75,8 +68,7 @@
  {
  	margin-left: 10%;
  	margin-right: 10%;
-}
-
+ }
 
 
  .main {
@@ -86,19 +78,17 @@
  	width: 60%;
  	top: 0;
  	bottom: 0;
-    height: 100%;
-    padding-top: 100px;
+ 	padding-top: 100px;
  	padding-left: 50px;
  	padding-right: 100px;
  	padding-bottom: 60px;
  	overflow-x: hidden;
-    margin-top: 0;
-    margin-left: 10%;
-    background-color: #f7f7f7;
-     box-shadow: 0px 0px 10px #bfbfbf;
+
+ 	margin-left: 10%;
+ 	background-color: #e4e4e4;
+
 
  }
-
 
 
  .right {
@@ -109,14 +99,15 @@
  	padding-top: 100px;
  	padding-left: 20px;
  	padding-right: 20px;
+ 	background-color: #d1d2d2;
  	margin-left: 55%;
  	top: 0;
  	height: 100%;
- 	border-left: 1px solid #fff;
+ 	border-left: 3px solid #d1d2d2;
  	overflow-x: hidden;
  }
 
- .notice_right{
+ /*.notice_right{
 	font: 1em 'Helvetica W01 Cn', Helvetica;
 	color: #474747;o
 	padding-bottom:4px;
@@ -144,34 +135,4 @@
 	color: #474747;
 	padding-bottom:0px;
 	padding-top:2px;
-}
-.notice_right, .invalid_notice_right p, .valid_notice_right p{
-	text-align:center;
-	margin-top:2px;
-	font: 0.8em 'Helvetica W01 Cn', Helvetica;
-	color: #474747;
-	padding-bottom:1px;
-	padding-top:1px;
-}
-
-.notice_right{
-	background-color: transparent;
-	margin-top:0px;
-	margin:auto;
-	margin-top:0px;
-	margin-bottom:0px;
-	font: 1.3em 'Helvetica W01 Cn', Helvetica;
-	color: #006699;
-	font-weight:bold;
-	padding-bottom:0px;
-	padding-top:0px;
-}
-
-.invalid_notice_right{
-	background-color: #FFCCCC;
-	border:1px solid red;
-}
-.valid_notice_right{
-	background-color: #CCFFCC;
-	border:1px solid green;
-}
+}*/
