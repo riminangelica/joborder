@@ -35,6 +35,7 @@ gem 'omniauth-github'
 
 gem 'rails_admin'
 
+gem 'twitter-bootstrap-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
