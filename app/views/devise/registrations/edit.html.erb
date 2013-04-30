@@ -1,16 +1,4 @@
-<head>
-  <link href="select2.css" rel="stylesheet"/>
-  <script src="select2.js"></script>
-  <script>
-  $(document).ready(function() {
-    $("#e2_2").select2({
-      placeholder: "Select a Category",
-      allowClear: true
-    });
-  });
-  </script>
-</head>
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+ <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>

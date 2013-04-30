@@ -1,8 +1,15 @@
 Blog::Application.routes.draw do
-  
+  devise_for :admins
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  
+  
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  
+  
+
   
   match '/users/auth:provider' => 'omniauth_callbacks#passthru', method: :get
   match '/users/auth/:provider/callback' => 'omniauth_callbacks#passthru', method: :get
@@ -16,7 +23,8 @@ Blog::Application.routes.draw do
   match '/:user_id',
     :to => 'users#show'
 
-  root :to => "home#index"
+  root :to => "home#welcome"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
