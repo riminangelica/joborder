@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blog</title>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <title>Blog</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 
-<div>
-  <div class="header">
-    <% if user_signed_in? %>
-    <strong>Hello, <%= current_user.username %>!</strong>
-    <%= link_to 'Home', root_path %> | 
-    <%= link_to 'Account Settings', edit_user_registration_path %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %> |
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>,
-    <%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %>, or
-    <%= link_to "Github", user_omniauth_authorize_path(:github) %>
-    <% end %>
+  <div class="navbar">
+      <div class="navbar-inner">
+          <div class="container">
+                                                                                                         </div>
+              <ul class="nav">
+                  <a class="brand" href="#">WOO</a>
+
+                  <% if user_signed_in? %>
+                      <strong>Hello, <%= current_user.username %>!</strong>
+                      <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
+                      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                      <% else %>
+                      <li><%= link_to "Sign up", new_user_registration_path %> </li>
+                      <li><%= link_to "Login", new_user_session_path %></li>
+                     <% end %>
+
+
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+      </div>
   </div>
-  <body>
-    <div class ="container">
-      <div class="main">
-        <div class="notice"><%= notice %></div>
-        <div class="alert"><%= alert %></div>
-        <%= yield  :projhist%>
-        <%= yield %>
+ </div>
+
+ </div>
+<body>
+    <%= yield :right %>
+    <%= yield :left %>
+    <%= yield %>
+ </div>
+</body>
+
+
+
+
+
       </div>
-      <div class="right">
-        <% unless user_signed_in? %>
-          <%= yield :right %>
-        <% else %>
-          <%= link_to "New Project", "/project/new" %>
-          <%= link_to "View Portfolio", "/portfolio" %>
-          <%= link_to "View Job Orders", "/joborders" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="footer">dawg</div>
-  </body>
-</div>
+  </div>
+ </div>
+
+ </div>
+
 </html>

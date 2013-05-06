@@ -1,25 +1,30 @@
-<% content_for :right do %>
-  <h2>Sign up</h2>
-
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<% content_for :left do %>
+    <div class="row-fluid">
+    <div class="span4 offset4">
+    <h2>Sign up</h2>
+<table>
+  <tr>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div><%= f.label :username %><br />
-    <%= f.text_field :username, :autofocus => true %></div>
+    <tr><td><%= f.label :username %></td>
+    <td><%= f.text_field :username, :autofocus => true, :placeholder => "Type your username" %></td></tr>
 
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+    <tr><td><%= f.label :email %></td>
+    <td><%= f.email_field :email, :placeholder => "blah@blah.blah" %></td></tr>
 
     <!-- <#% if f.object.password_required? %> -->
-      <div><%= f.label :password %><br />
-      <%= f.password_field :password %></div>
+      <tr><td><%= f.label :password %></td>
+      <td><%= f.password_field :password, :placeholder => "********" %></td></tr>
 
-      <div><%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %></div>
+      <tr><td><%= f.label "Re-enter" %></td>
+      <td><%= f.password_field :password_confirmation, :placeholder => "Re-enter password plis :3" %></td></tr>
     <!-- <#% end %> -->
-
+</table>
     <div><%= f.submit "Sign up" %></div>
   <% end %>
 
   <%= render "devise/shared/links" %>
 <%end%>
+</div>
+</div>

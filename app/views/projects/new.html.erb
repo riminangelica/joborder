@@ -2,7 +2,7 @@
 <%= f.label "User ID:"  %> <%= f.text_field :user_id %> <br>
 <%= f.label "Category:" %> <%= f.collection_select(:category_id, Category.all, :id, :name)%> <br>
 <%= f.file_field :image %>
-<%= f.label :remote_image_url, "or image URL" %><br />
+<%= f.label :remote_image_url, "or image URL" %>
 <%= f.text_field :remote_image_url %>
 <%= f.label "Title:" %> <%= f.text_field :title %> <br>
 <%= f.label "Description:" %> <%= f.text_area :description%> <br>

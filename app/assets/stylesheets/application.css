@@ -20,19 +20,21 @@
  body{
  	margin: 0;
  	background-color: #b3b3b3;
-    background-image: url('tiny_grid.png');
- 	overflow: hidden;
+    background-image: url('inflicted.png');
+ 	overflow: auto;
  	width: 100%;
  	height: 100%;
- 	font: 13px Ubuntu Light;
+
 	line-height: 1.4;
+font-family: 'Arapey', serif;
+
 
  }
 
  .header {
  	/* Provide scrollbars if needed and fix the header dimensions */
  	overflow: auto;
- 	position: absolute;
+ 	position: fixed;
     padding-left: 10%;
  	background: #45484d; /* Old browsers */
     background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
@@ -43,7 +45,7 @@
     background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
  	width: 100%;
- 	height: 80px;
+    height: 80px;
  	color: #fff;
  	font: 20px Arial, serif;
  	float: center;
@@ -70,8 +72,16 @@
 
  }
 
+    .container-fluid
+    {
+        font-family: 'Lato', sans-serif;
 
- .container
+    }
+h1, h2, h3, h4
+{
+    font-family: 'Combo', cursive;
+}
+    .container
  {
  	margin-left: 10%;
  	margin-right: 10%;
@@ -98,24 +108,68 @@
      box-shadow: 0px 0px 10px #bfbfbf;
 
  }
+.navbar, .navbar-inner
+{
+height: 80px;
+}
 
+
+ ul.nav li.dropdown:hover ul.dropdown-menu{
+         display: block;
+     }
+
+     a.menu:after, .dropdown-toggle:after {
+           content: none;
+       }
 
 
  .right {
- 	overflow: auto;
- 	position: absolute;
- 	width: 30%;
+
+
  	float: left;
- 	padding-top: 100px;
- 	padding-left: 20px;
- 	padding-right: 20px;
- 	margin-left: 55%;
+
+width:100%;
+    background-image: url('greyfloral.png');
  	top: 0;
- 	height: 100%;
- 	border-left: 1px solid #fff;
+
+
  	overflow-x: hidden;
  }
+.span9, .span3
+{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0px 0px 8px #e4e4e4;
+    margin-bottom: 20px;
+   }
 
+   .span4.offset4
+   {
+    background: rgb(250,250,250);
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px #000;
+    border-width: 10px;
+    border: 10px solid #ABF400;
+    padding: 20px 50px 20px 50px;
+
+   }
+   td
+   {
+       padding-right: 10px;
+   }
+
+    .span12
+    {
+
+
+    }
+ .divtop
+ {
+     width=940px;
+     padding-top:100px;
+ }
  .notice_right{
 	font: 1em 'Helvetica W01 Cn', Helvetica;
 	color: #474747;o

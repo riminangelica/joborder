@@ -1,0 +1,18 @@
+<%= form_for(:order, :url => { :controller => 'orders',:action => 'new'}) do |f|%> <br>
+    <%= f.label "Project Name:"  %> <%= f.text_field :project_name %> <br>
+    <%= f.label "Category:" %> <%= f.collection_select(:category_id, Category.all, :id, :name)%> <br>
+    <%= f.label "First Name:" %> <%= f.text_field :first_name %> <br>
+    <%= f.label "Last Name:" %> <%= f.text_field :surname%> <br>
+    <%= f.label "E-mail:" %> <%= f.text_field :email %> <br>
+    <%= f.label "Contact No.:" %> <%= f.text_field :mobile %> <br>
+    <%= f.label "Project Description:" %> <%= f.text_field :projectdescription %> <br>
+    <%= f.label "Number of Workers Needed:" %> <%= f.text_field :number_of_workers %> <br>
+    <%= f.label "Skills Needed:" %><%= f.text_field :skills%> <br>
+    <%= f.label "User/s of Choice:"%><%= f.collection_select(:user_id, User.all, :id, :first_name)%> <br>
+    <%= f.label "Technicalities:"%><%= f.text_field :technicalities %> <br>
+    <%= f.label "Aesthetics:" %> <%= f.text_field :aesthetics %> <br>
+    <%= f.label "Attachments:"%> <br>
+    <%= f.label "Target Date:" %> <%= f.text_field :target_date%> <br>
+    <%= f.label "Start Date:"%> <%= f.text_field :start_id%> <br>
+    <%= f.submit "Post Job Order" %> <br>
+<% end %>
