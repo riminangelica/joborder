@@ -51,6 +51,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fancybox-rails (0.2.1)
+      railties (>= 3.1.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     font-awesome-sass-rails (2.0.0.0)
@@ -199,6 +201,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
+  fancybox-rails
   jquery-rails
   less-rails
   mini_magick

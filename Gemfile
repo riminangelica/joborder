@@ -45,6 +45,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'less-rails'
 
+
+gem 'fancybox-rails'
 # To use ActiveModel has_secure_password
 
 

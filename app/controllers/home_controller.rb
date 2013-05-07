@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :authenticate_user!, except: [:welcome]
+	before_filter :authenticate_user!#, except: [:welcome]
 
 
     def index
@@ -9,8 +9,8 @@ class HomeController < ApplicationController
 
 
   def welcome
-  	#@projects = Project.where(:user_id => current_user.id)
-  	#@orders = Order.where(:user_id => current_user.id)
+  	@projects = Project.where(:user_id => current_user.id)
+  	@orders = Order.where(:user_id => current_user.id)
   end
 
 end
