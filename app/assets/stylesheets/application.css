@@ -77,17 +77,10 @@ font-family: 'Arapey', serif;
         font-family: 'Lato', sans-serif;
 
     }
-h1, h2, h3, h4
+.carousel-control.right
 {
-    font-family: 'Combo', cursive;
+    overflow: hidden;
 }
-    .container
- {
- 	margin-left: 10%;
- 	margin-right: 10%;
-}
-
-
 
  .main {
  	/* Provide scrollbars if needed, position below header, and derive height from top/bottom*/
@@ -135,13 +128,13 @@ width:100%;
 
  	overflow-x: hidden;
  }
-.span9, .span3
+.span10.offset1
 {
     background-color: #fff;
-    border-radius: 20px;
     padding: 25px;
     background: #fff;
-    box-shadow: 0px 0px 8px #e4e4e4;
+    box-shadow: inset 0px 0px 20px #b3b3b3;
+    margin-left: 20px;
     margin-bottom: 20px;
    }
 

@@ -16,9 +16,23 @@
                   <a class="brand" href="#">WOO</a>
 
                   <% if user_signed_in? %>
-                      <strong>Hello, <%= current_user.username %>!</strong>
-                      <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
-                      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+
+                      <li><strong>Hello, <%= current_user.username %>!</strong/></li>
+                          <li>  <input type="text" class="input-medium search-query">
+                          <button type="submit" class="btn"> <%= image_tag "Navbar/search.png", :size => "40x40"%></button>
+                              </li>
+                      <li class="dropdown" id="accountmenu">
+
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= image_tag "Navbar/settings.png", :size=>"40x40" %><b class="caret"></b></a>
+
+                      <ul class="dropdown-menu">
+                          <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+                          <li><%= link_to 'Edit Profile'%></li>
+                          <hr>
+                       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                      </ul>
+                                                                                                                                                  </li>
+
                       <% else %>
                       <li><%= link_to "Sign up", new_user_registration_path %> </li>
                       <li><%= link_to "Login", new_user_session_path %></li>

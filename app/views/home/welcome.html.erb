@@ -37,13 +37,20 @@
     <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
 </div><!-- /.carousel -->
 <% else %>
-  <  <div class="container-fluid">
-    <div class ="divtop"></div>
-    <div class="row-fluid">
-      <div class="span9">
 
-        <h1><%= image_tag "IndexHome/projecticon.png", :size=>"80x80"%> Project History</h1>
-        <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
+
+    <div class="row-fluid">
+        <div class="span10 offset1"> <h1><%= image_tag "IndexHome/projecticon.png", :size=>"80x80"%> Project History</h1>
+            <HR>
+        <div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#1" data-toggle="tab">Pending</a></li>
+<li class=""><a href="#2" data-toggle="tab">In Progress</a></li>
+<li class=""><a href="#3" data-toggle="tab">Completed</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="1">
+<h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
         <% if !@projects.nil? %>
         <div class="CSSTableGenerator" >
         <table>
@@ -71,8 +78,9 @@
       <% else %>
         You have no pending projects.
       <% end %>
-
-      <h2><%= image_tag "Status/inProgress.png", :size=>"50x50"%> In Progress</h2>
+</div>
+<div class="tab-pane" id="2">
+<h2><%= image_tag "Status/inProgress.png", :size=>"50x50"%> In Progress</h2>
       <% if !@project.nil? && @project.project_status == "In Progress" %>
       <div class="CSSTableGenerator" >
         <table >
@@ -96,8 +104,9 @@
       <% else %>
       You have no projects in progress.
       <% end %>
-
-      <h2><%= image_tag "Status/accomplished.png", :size=>"50x50"%>Completed</h2>
+</div>
+<div class="tab-pane" id="3">
+<h2><%= image_tag "Status/accomplished.png", :size=>"50x50"%>Completed</h2>
       <% if !@project.nil? && @project.project_status == "Completed" %>
       <div class="CSSTableGenerator" >
         <table >
@@ -122,12 +131,12 @@
       <% else %>
       You have not completed any projects yet.<br>
       <% end %>
+</div>
+</div>
+</div>
+</div>
     </div>
-    <div class="span3">
-      <h1>User Profile</h1>
-      <%= current_user.username %>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis lectus id quam molestie vulputate. Sed bibendum adipiscing malesuada. Pellentesque est nulla, egestas et facilisis sed, mollis id sapien. Curabitur sollicitudin pulvinar nisl. Nam sollicitudin placerat orci in vulputate. Morbi blandit lacinia quam, at semper nisi gravida sed. Ut sagittis, enim ut scelerisque eleifend, nisl ligula auctor velit, et fermentum magna diam sed eros. Maecenas malesuada, nunc non sollicitudin porttitor, augue sem lobortis quam, vitae posuere nisi diam nec sapien. Pellentesque eu dui nisl, at tincidunt eros. Ut hendrerit ipsum sed dui auctor in tempor metus imperdiet. Etiam ultricies convallis purus sit amet sodales. Aliquam iaculis accumsan erat et interdum. Quisque enim ante, tristique nec molestie eget, viverra id nunc.</p>
-  </div>
+
   </div>
 </div>
 
