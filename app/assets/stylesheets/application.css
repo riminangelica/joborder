@@ -82,6 +82,19 @@ font-family: 'Arapey', serif;
     overflow: hidden;
 }
 
+hr
+{
+    line-height:1px;
+    height: 1px;
+}
+.span2
+{
+    border-right: 1px solid #e4e4e4;
+    background: transparent;
+    height: 1200px;
+    overflow:hidden;
+}
+
  .main {
  	/* Provide scrollbars if needed, position below header, and derive height from top/bottom*/
  	overflow: auto;
