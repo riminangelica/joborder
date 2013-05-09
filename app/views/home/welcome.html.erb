@@ -60,7 +60,7 @@
                                 <div class="tab-pane active" id="1">
                                     <div>
 
-                                        <h1><%= image_tag "IndexHome/projecticon.png", :size=>"80x80"%> Project History</h1>
+                                        <h1> Project History</h1>
                                         <div class="tabbable">
                                             <ul class="nav nav-pills">
                                                 <li class="active"><a href="#5" data-toggle="tab">Pending</a></li>
@@ -159,12 +159,12 @@
                                     <h3>Project Portfolio</h3>
                                     <hr>
                                     <% @projects.each do |project| %>
-                                        <div class="span5">
+                                        <div class="span3">
                                             <div id="capslide_img_cont1" class="ic_container">
                                                 <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
-
-                                                   <p class="ic_category">Category</p>
-                                                    <h3>Amazing Image Title</h3>
+                                                <p class="ic_category"><%= project.category.name%></p>
+                                                <h3><%= project.title%></h3>
+                                                <p><%= project.description %>
 
 
 

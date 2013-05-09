@@ -13,14 +13,14 @@
           <div class="container">
                                                                                                          </div>
               <ul class="nav">
-                  <a class="brand" href="#">WOO</a>
+                  <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
 
                   <% if user_signed_in? %>
 
                       <li><strong>Hello, <%= current_user.username %>!</strong/></li>
-                          <li>  <input type="text" class="input-medium search-query">
-                          <button type="submit" class="btn"> <%= image_tag "Navbar/search.png", :size => "40x40"%></button>
-                              </li>
+
+
+
                       <li class="dropdown" id="accountmenu">
 
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= image_tag "Navbar/settings.png", :size=>"40x40" %><b class="caret"></b></a>

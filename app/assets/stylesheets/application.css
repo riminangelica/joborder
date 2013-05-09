@@ -14,30 +14,30 @@
  */
 
 
- div {
- 	margin: 0;
- 	padding: 0;
- }
- body{
- 	margin: 0;
- 	background-color: #b3b3b3;
+div {
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    background-color: #b3b3b3;
     background-image: url('inflicted.png');
- 	overflow: auto;
- 	width: 100%;
- 	height: 100%;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
 
-	line-height: 1.4;
-font-family: 'Arapey', serif;
+    line-height: 1.4;
+    font-family: 'Arapey', serif;
 
 
- }
+}
 
- .header {
- 	/* Provide scrollbars if needed and fix the header dimensions */
- 	overflow: auto;
- 	position: fixed;
+.header {
+    /* Provide scrollbars if needed and fix the header dimensions */
+    overflow: auto;
+    position: fixed;
     padding-left: 10%;
- 	background: #45484d; /* Old browsers */
+    background: #45484d; /* Old browsers */
     background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
@@ -45,39 +45,39 @@ font-family: 'Arapey', serif;
     background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
- 	width: 100%;
+    width: 100%;
     height: 80px;
- 	color: #fff;
- 	font: 20px Arial, serif;
- 	float: center;
- 	z-index: 2;
- 	opacity: .99;
- 	box-shadow: 0px 5px 5px #888888;
+    color: #fff;
+    font: 20px Arial, serif;
+    float: center;
+    z-index: 2;
+    opacity: .99;
+    box-shadow: 0px 5px 5px #888888;
 
 
- }
+}
 
- .footer {
- 	/* Provide scrollbars if needed and fix the header dimensions */
- 	overflow: auto;
- 	position: absolute;
- 	background-color: #71bf00;
- 	width: 100%;
- 	height: 30px;
- 	color: #fff;
- 	float: center;
- 	z-index: 2;
- 	box-shadow: 0px -5px 10px #888888;
- 	bottom: 0;
+.footer {
+    /* Provide scrollbars if needed and fix the header dimensions */
+    overflow: auto;
+    position: absolute;
+    background-color: #71bf00;
+    width: 100%;
+    height: 30px;
+    color: #fff;
+    float: center;
+    z-index: 2;
+    box-shadow: 0px -5px 10px #888888;
+    bottom: 0;
 
 
- }
+}
 
-    .container-fluid
-    {
-        font-family: 'Lato', sans-serif;
+.container-fluid
+{
+    font-family: 'Lato', sans-serif;
 
-    }
+}
 .carousel-control.right
 {
     overflow: hidden;
@@ -100,52 +100,40 @@ hr
     background-image: url('bedge_grunge.png');
 }
 
- .main {
- 	/* Provide scrollbars if needed, position below header, and derive height from top/bottom*/
- 	overflow: auto;
- 	position: absolute;
- 	width: 60%;
- 	top: 0;
- 	bottom: 0;
+.main {
+    /* Provide scrollbars if needed, position below header, and derive height from top/bottom*/
+    overflow: auto;
+    position: absolute;
+    width: 60%;
+    top: 0;
+    bottom: 0;
     height: 100%;
     padding-top: 100px;
- 	padding-left: 50px;
- 	padding-right: 100px;
- 	padding-bottom: 60px;
- 	overflow-x: hidden;
+    padding-left: 50px;
+    padding-right: 100px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
     margin-top: 0;
     margin-left: 10%;
     background-color: #f7f7f7;
-     box-shadow: 0px 0px 10px #bfbfbf;
+    box-shadow: 0px 0px 10px #bfbfbf;
 
- }
+}
 .navbar, .navbar-inner
 {
-height: 80px;
+    height: 80px;
 }
 
 
- ul.nav li.dropdown:hover ul.dropdown-menu{
-         display: block;
-     }
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;
+}
 
-     a.menu:after, .dropdown-toggle:after {
-           content: none;
-       }
-
-
- .right {
+a.menu:after, .dropdown-toggle:after {
+    content: none;
+}
 
 
- 	float: left;
-
-width:100%;
-    background-image: url('greyfloral.png');
- 	top: 0;
-
-
- 	overflow-x: hidden;
- }
 .span10.offset1
 {
     background-color: #fff;
@@ -156,10 +144,10 @@ width:100%;
 
     border-radius: 10px;
     margin-bottom: 20px;
-   }
+}
 
-   .span4.offset4
-   {
+.span4.offset4
+{
     background: rgb(250,250,250);
     border-radius: 20px;
     box-shadow: 0px 0px 50px #000;
@@ -167,60 +155,22 @@ width:100%;
     border: 10px solid #ABF400;
     padding: 20px 50px 20px 50px;
 
-   }
-   td
-   {
-       padding-right: 10px;
-   }
-
-    .boxgrid
-    {
-        width: 325px;
-        height: 250px;
-        margin 10px;
-        float: left;
-        background: #161613;
-        border: solid 2px #8399af;
-        overflow: hidden;
-        position: relative;
-
-    }
-    .boxgrid img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 0;
-    }
-    .boxcaption
-    {
-        float: left;
-        position: absolute;
-        background: #000;
-        height:100px;
-        width:100%;
-        opacity: .8;
-
-    }
-.captionfull .boxcaption
-{
-    top:260;
-    left:0;
 }
-.caption .boxcaption
+td
 {
-    top: 220;
-    left:0;
+    padding-right: 10px;
 }
- .divtop
- {
-     width=940px;
-     padding-top:100px;
- }
- .notice_right{
-	font: 1em 'Helvetica W01 Cn', Helvetica;
-	color: #474747;o
-	padding-bottom:4px;
-	padding-top:2px;
+
+.divtop
+{
+    width=940px;
+    padding-top:100px;
+}
+.notice_right{
+    font: 1em 'Helvetica W01 Cn', Helvetica;
+    color: #474747;o
+    padding-bottom:4px;
+    padding-top:2px;
 
 }
 .valid_notice_right{
@@ -275,52 +225,4 @@ width:100%;
     background-color: #CCFFCC;
     border:1px solid green;
 }
-.ic_container{
-    vertical-align:baseline;
-    margin:10px;
-    position:relative;
-    /*-moz-border-radius:10px;
-     *     -webkit-border-radius:10px;
-     *         -khtml-border-radius:10px;
-     *             -moz-box-shadow: 0 1px 3px #888;
-     *                 -webkit-box-shadow: 0 1px 3px #888;*/
-}
-.overlay{
-    opacity:0.3;
-    position:absolute;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px;
-    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
-}
-.ic_caption{
-    position:absolute;
-    opacity:0.6;
-    overflow:hidden;
-    margin:0px;
-    padding:0px;
-    left:0px;
-    right:0px;
-    cursor:default;
-    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
-}
-.ic_category{
-    text-transform:uppercase;
-    font-size:11px;
-    letter-spacing:3px;
-    padding:5px;
-    margin:0px;
-}
-.ic_caption h3{
-    padding:0px 5px 5px 5px;
-    margin:0px;
-    font-size:18px;
-}
-.ic_text{
-    padding:5px;
-    margin:0px;
-    text-align:justify;
-    font-size:11px;
 
-}

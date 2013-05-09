@@ -3,19 +3,19 @@
 en:
   devise:
     confirmations:
-      confirmed: "Welcome to nicaminerz, betch! Cool mo naman"
-      send_instructions: "Check your e-mail to confirm your account.. NOW!!!"
+      confirmed: "Welcome to Job Order!"
+      send_instructions: "Check your e-mail to confirm your account."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
     failure:
-      already_authenticated: "Naka-sign in ka na nga eh puta kulit"
-      inactive: "YOU SHALL NOT PASS! Activate your account first kasi!"
-      invalid: "WRONG!!! YOU SHALL NOT PASS!!!"
+      already_authenticated: "You are alread signed in."
+      inactive: "Activate your account first. Check your e-mail to confirm your account."
+      invalid: "Wrong username/password."
       invalid_token: "Invalid authentication token."
-      locked: "Your account is locked. YOU SHALL NOT PASS!!!"
-      not_found_in_database: "Invalid email or password. PAKYU"
-      timeout: "Your session expired, please sign in again to continue. Bagal kasi puta"
+      locked: "Your account is locked."
+      not_found_in_database: "Invalid email or password."
+      timeout: "Your session expired, please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "Confirm your account muna puta"
+      unconfirmed: "Confirm your account first. Check your e-mail to confirm your account."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
@@ -31,10 +31,10 @@ en:
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password was changed successfully. You are now signed in."
-      updated_not_active: "Ayan, wag mo na kalimutan password mo ah. Bobo amputa"
+      updated_not_active: "Password changed."
     registrations:
-      destroyed: "PAKYU KA MAMATAY KA NA. Bye"
-      signed_up: "HAY GURL HAAAAY"
+      destroyed: "Account cancelled."
+      signed_up: "Successfully signed up. Please confirm your account first before logging in."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
       signed_up_but_unconfirmed: "Check your e-mail to confirm your account BILIS GO NAAA"
@@ -55,5 +55,5 @@ en:
       not_found: "not found gurl ano ba yan may amnesia ka na ba"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error fucking prohibited this %{resource} from being saved kasi bobo ka:"
-        other: "%{count} fucking errors prohibited this %{resource} from being saved kasi bobo ka:"
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
