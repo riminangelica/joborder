@@ -61,13 +61,13 @@
                                     <div>
 
                                         <h1> Project History</h1>
-                                        <div class="tabbable">
+                                        <hr> <div class="tabbable">
                                             <ul class="nav nav-pills">
                                                 <li class="active"><a href="#5" data-toggle="tab">Pending</a></li>
                                                 <li class=""><a href="#6" data-toggle="tab">In Progress</a></li>
                                                 <li class=""><a href="#7" data-toggle="tab">Completed</a></li>
                                             </ul>
-                                            <div class="tab-content">
+                                            <hr>                                            <div class="tab-content">
                                                 <div class="tab-pane active" id="5">
                                                     <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
                                                     <% if !@projects.nil? %>
