@@ -173,11 +173,44 @@ width:100%;
        padding-right: 10px;
    }
 
-    .span12
+    .boxgrid
     {
-
+        width: 325px;
+        height: 250px;
+        margin 10px;
+        float: left;
+        background: #161613;
+        border: solid 2px #8399af;
+        overflow: hidden;
+        position: relative;
 
     }
+    .boxgrid img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    }
+    .boxcaption
+    {
+        float: left;
+        position: absolute;
+        background: #000;
+        height:100px;
+        width:100%;
+        opacity: .8;
+
+    }
+.captionfull .boxcaption
+{
+    top:260;
+    left:0;
+}
+.caption .boxcaption
+{
+    top: 220;
+    left:0;
+}
  .divtop
  {
      width=940px;
