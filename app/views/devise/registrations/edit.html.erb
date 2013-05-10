@@ -1,140 +1,123 @@
-<head>
-  <link href="select2.css" rel="stylesheet"/>
-  <script src="select2.js"></script>
-  <script>
-  $(document).ready(function() {
-    $("#e2_2").select2({
-      placeholder: "Select a Category",
-      allowClear: true
-    });
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#ADMU").hide();
+  $("#DLSU").hide();
+  $("#UPD").hide();
+  $("#UST").hide();
+
+  $('#schools').val(onchange=function(){
+    var schools = $('#schools');
+
+    if (schools.val()=="Ateneo de Manila University"){
+      $("#ADMU").show();
+      $("#DLSU").hide();
+      $("#UPD").hide();
+      $("#UST").hide();
+    }
+    else if (schools.val()=="De La Salle University"){
+      $("#ADMU").hide();
+      $("#DLSU").show();
+      $("#UPD").hide();
+      $("#UST").hide();
+    }
+    else if (schools.val()=="University of the Philippines - Diliman"){
+      $("#ADMU").hide();
+      $("#DLSU").hide();
+      $("#UPD").show();
+      $("#UST").hide();
+    }
+    else if (schools.val()=="University of Santo Tomas"){
+      $("#ADMU").hide();
+      $("#DLSU").hide();
+      $("#UPD").hide();
+      $("#UST").show();
+    }
+
   });
-  </script>
-</head>
-<div class=row-fluid">
-    <div class="span10 offset1">
-        <div class="tabbable tabs-left">
-            <ul class="nav nav-tabs nav-stacked">
-                <li class="active"><a href="#1" data-toggle="tab">Edit Account</a>
-                <li><a href="#2" data-toggle="tab">Edit Portfolio</a></li>
-<li><a href="#2" data-toggle="tab">WOO</a></li>
-           <li><a href="#2" data-toggle="tab">WOO</a></li>
-           <li><a href="#2" data-toggle="tab">WOO</a></li>
-           </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="1">
-                    <div>
-
-                        <h2>Edit <%= resource_name.to_s.humanize %></h2>
-                        <table>
-                            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-                                <%= devise_error_messages! %>
-                                <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {:id => "e2_2"}) %>
-
-                                <tr><td><%= f.label :username %></td><td><%= f.text_field :username, :autofocus => true %></td></tr>
-
-                                <tr><td><%= f.label :first_name %></td><td><%= f.text_field :first_name %></td></tr>
-
-                                <tr><td><%= f.label :middle_initial %></td><td><%= f.text_field :middle_initial %></td></tr>
-
-                                <tr><td><%= f.label :surname %></td><td><%= f.text_field :surname %></td></tr>
-
-                                <tr><td><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
-
-                                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
-                            <% end %>
-
-                            <script type="text/javascript">
-                                $(document).ready(function() {
-                                    $("#ADMU").hide();
-                                    $("#DLSU").hide();
-                                    $("#UPD").hide();
-                                    $("#UST").hide();
-
-                                    $('#schools').val(onchange=function(){
-                                    var schools = $('#schools');
-
-                                    if (schools.val()=="Ateneo de Manila University"){
-                                    $("#ADMU").show();
-                                    $("#DLSU").hide();
-                                    $("#UPD").hide();
-                                    $("#UST").hide();
-                                    }
-                                    else if (schools.val()=="De La Salle University"){
-                                    $("#ADMU").hide();
-                                    $("#DLSU").show();
-                                    $("#UPD").hide();
-                                    $("#UST").hide();
-                                    }
-                                    else if (schools.val()=="University of the Philippines - Diliman"){
-                                    $("#ADMU").hide();
-                                    $("#DLSU").hide();
-                                    $("#UPD").show();
-                                    $("#UST").hide();
-                                    }
-                                    else if (schools.val()=="University of Santo Tomas"){
-                                        $("#ADMU").hide();
-                                        $("#DLSU").hide();
-                                        $("#UPD").hide();
-                                        $("#UST").show();
-                                    }
-
-                                    });
-                                });
+});
 </script>
 
-<%= f.label :school %> <%= f.select(:school, [
-                                    ["Ateneo de Manila University"],
-                                    ["De La Salle University"],
-                                    ["University of the Philippines - Diliman"],
-                                    ["University of Santo Tomas"]], {},
-                                    :id => "schools") %>
+<div class=row-fluid">
+  <div class="span10 offset1">
+    <div class="tabbable tabs-left">
+      <ul class="nav nav-tabs nav-stacked">
+        <li class="active"><a href="#1" data-toggle="tab">Edit Account</a>
+        <li><a href="#2" data-toggle="tab">Edit Portfolio</a></li>
+        <li><a href="#2" data-toggle="tab">WOO</a></li>
+        <li><a href="#2" data-toggle="tab">WOO</a></li>
+        <li><a href="#2" data-toggle="tab">WOO</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="1">
+          <div>
+            <h2>Edit <%= resource_name.to_s.humanize %></h2>
+            <table>
+              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+                <%= devise_error_messages! %>
+              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {:id => "e2_2"}) %>
 
-                                    <div id="ADMU">
-                                        <%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']]) %>
-                                        <%= f.label :organization %> <%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]]) %>
-                                    </div>
+              <tr><td><%= f.label :username %></td><td><%= f.text_field :username, :autofocus => true %></td></tr>
 
-                                    <div id="DLSU">
-                                        <%= f.label :course %> <%= f.select(:course, [['BS RICH KID'],['BS COOL KID']]) %>
-                                        <%= f.label :organization %> <%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]]) %>
-                                    </div>
+              <tr><td><%= f.label :first_name %></td><td><%= f.text_field :first_name %></td></tr>
 
-                                    <div id="UPD">
-                                        <%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']]) %>
-                                        <%= f.label :organization %> <%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]]) %>
-                                    </div>
+              <tr><td><%= f.label :middle_initial %></td><td><%= f.text_field :middle_initial %></td></tr>
 
-                                    <div id="UST">
-                                        <%= f.label :course %> <%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']]) %>
-                                        <%= f.label :organization %> <%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]]) %>
-                                    </div>
+              <tr><td><%= f.label :surname %></td><td><%= f.text_field :surname %></td></tr>
 
-                                    <tr><td><%= f.label :organization %></td><td><%= f.text_field :organization %></td></tr>
+              <tr><td><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
 
-                                    <tr><td><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></td><td>
-                                            <%= f.password_field :password, :autocomplete => "off" %></td></tr>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
+              <% end %>
+            </table>
 
-                                    <tr><td><%= f.label :password_confirmation %></td><td><%= f.password_field :password_confirmation %></td></tr>
+            <%= f.label :school %> <%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools") %>
 
-                                    <% if f.object.encrypted_password.present? %>
-                                        <tr><td><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></td><td>
-                                                <%= f.password_field :current_password %></td></tr>
-                                    <% end %>
-                                    <tr><td><%= f.submit "Update" %></td></tr>
-                                <% end %>
-                            </table>
-                            <h3>Cancel my account</h3>
+            <div id="ADMU">
+              <%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']]) %>
+              <%= f.label :organization %> <%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]]) %>
+            </div>
+            
+            <div id="DLSU">
+              <%= f.label :course %> <%= f.select(:course, [['BS RICH KID'],['BS COOL KID']]) %></td>
+              <%= f.label :organization %> <%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]]) %></td>
+            </div>
+           
+            <div id="UPD">
+              <%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']]) %></td>
+              <%= f.label :organization %> <%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]]) %></td>
+            </div>
+            
+            <div id="UST">
+              <%= f.label :course %> <%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']]) %></td>
+              <%= f.label :organization %> <%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]]) %></td>
+            </div>
 
-                            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+            <table>
+            <tr><td><%= f.label "New password" %></td><td>
+                <%= f.password_field :password, :autocomplete => "off" %><br><small>Leave blank to remain unchanged.</small></td></tr>
 
-                            <%= link_to "Back", :back %>
+            <tr><td><%= f.label :password_confirmation %></td><td><%= f.password_field :password_confirmation %></td></tr>
 
-                        </div>
+            <% if f.object.encrypted_password.present? %>
+              <tr><td><%= f.label :current_password %></td><td>
+                  <%= f.password_field :current_password %><br><small>Enter password to confirm changes.</small></td></tr>
+            <% end %>
+            <tr><td><%= f.submit "Update" %></td></tr>
+          <% end %>
+          </table>
+          <h3>Cancel my account</h3>
 
-                    </div>
- <div class="tab pane" id="2">
-                            HEHEHEHEHE
-                        </div>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+
+          <%= link_to "Back", :back %>
+
+        </div>
+
+      </div>
+      <div class="tab pane" id="2">
+        HEHEHEHEHE
+      </div>
     </div>
-</div></div>
+  </div>
+</div>

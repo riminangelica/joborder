@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-                <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <title>Blog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %> <%= javascript_include_tag "application" %>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<title>Blog</title>
+<%= stylesheet_link_tag "application", :media => "all" %> <%= javascript_include_tag "application" %>
 
-  <%= csrf_meta_tags %>
+<%= csrf_meta_tags %>
 </head>
 
-  <div class="navbar">
-      <div class="navbar-inner">
-          <div class="container">
-                                                                                                         </div>
-              <ul class="nav">
-                  <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
-
-                  <% if user_signed_in? %>
-
-                      <li><strong>Hello, <%= current_user.username %>!</strong/></li>
-
-
-
-                      <li class="dropdown" id="accountmenu">
-
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= image_tag "Navbar/settings.png", :size=>"40x40" %><b class="caret"></b></a>
-
-                      <ul class="dropdown-menu">
-                          <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-                          <li><%= link_to 'Edit Profile'%></li>
-                          <hr>
-                        <li><%= link_to 'Help'%></li>
-                          <hr>
-                       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                      </ul>
-                                                                                                                                                  </li>
-
-                      <% else %>
-                      <li><%= link_to "Sign up", new_user_registration_path %> </li>
-                      <li><%= link_to "Login", new_user_session_path %></li>
-                     <% end %>
-
-
-                      </ul>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </div>
- </div>
-
- </div>
 <body>
-    <%= yield :right %>
-    <%= yield :left %>
-    <%= yield %>
- </div>
-</body>
+<% if !alert.blank? %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.top-right').notify({
+      message: { text: "<%= alert %>" },
+      closable: true,
+      type: 'alert',
+      fadeOut: {
+        enabled: true,
+        delay: 7000
+      }
+    }).show();
+  });
+</script>
+<% end %>
+
+<% if !notice.blank? %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.top-right').notify({
+      message: { text: "<%= notice %>" },
+      closable: true
+    }).show();
+  });
+</script>
+<% end %>
 
 
 
-
-
-      </div>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+    </div>
+    <ul class="nav">
+      <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
+      <% if user_signed_in? %>
+        <li><strong>Hello, <%= current_user.username %>!</strong/></li>
+      <li class="dropdown" id="accountmenu">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= image_tag "Navbar/settings.png", :size=>"40x40" %><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+        <li><%= link_to 'Edit Profile'%></li>
+        <hr>
+        <li><%= link_to 'Help'%></li>
+        <hr>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+      </li>
+      <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path %> </li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>      
+     </li>
+    </ul>
   </div>
- </div>
-
- </div>
-
+</div>
+<div>
+  <div class="notifications top-right"></div>
+  <%= yield :right %>
+  <%= yield :left %>
+  <%= yield %>
+</div>
+</body>
 </html>
