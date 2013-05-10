@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require select2
+ *= require bootstrap
+ *= require bootstrap_notify
  *= require_self
  *= require_tree .
  */
@@ -18,12 +20,11 @@ div {
 }
 body{
     margin: 0;
-    background-color: #b3b3b3;
-    background-image: url('inflicted.png');
+    background-color: #888;
     overflow: auto;
     width: 100%;
     height: 100%;
-
+    background-image: url('lined_paper.png');
     line-height: 1.4;
     font-family: Helvetica, serif;
 
@@ -74,11 +75,6 @@ background-image: url('bedge_grunge.png');
 
 }
 
-.container-fluid
-{
-    font-family: 'Lato', sans-serif;
-
-}
 .carousel-control.right
 {
     overflow: hidden;
@@ -98,7 +94,7 @@ hr
 }
 .span10.offset1
 {
-    background-image: url('bedge_grunge.png');
+
 }
 
 .main {
@@ -136,27 +132,19 @@ a.menu:after, .dropdown-toggle:after {
 
 
 
-.span10.offset1
+.span10.offset1, .span5.offset3
 {
     background-color: #fff;
-    padding: 25px;
+    padding: 20px;
+    padding-left:70px;
     background: #fff;
-    box-shadow: 0px 0px 20px #888;
-
-
+    box-shadow: 0px 0px 20px #b5b5b5;
+    font-family: Open Sans;
     margin-bottom: 20px;
-}
-
-.span4.offset4
-{
-    background: rgb(250,250,250);
-    border-radius: 20px;
-    box-shadow: 0px 0px 50px #000;
-    border-width: 10px;
-    border: 10px solid #ABF400;
-    padding: 20px 50px 20px 50px;
+    opacity: .9;
 
 }
+
 td
 {
     padding-right: 10px;
@@ -234,7 +222,7 @@ h1, h2, h3, h4
     font-weight: normal;
 }
 .navbar-fixed-top, .navbar-inner{
-background-image: url('bedge_grunge.png');
+background-image: url('PATTERNS/wild_oliva.png');
     opacity: .97;
 font-family: Wire One;
 font-size: 30px;
@@ -245,14 +233,71 @@ color: #fff;
 {
         color:#fff;
 }
-li
-{
-    color:#fff;
-}
-
 p.Head
 {
     font-size: 30px;
     text-transform: capitalize;
 }
 
+/* ## Notification Keyframe Animations
+ *
+ * ## Usage
+ *
+ * ```css
+ *  -webkit-animation: notification .75s linear;
+ *  -moz-animation: notification .75s linear;
+ *  -ms-animation: notification .75s linear;
+ *  -o-animation: notification .75s linear;
+ *  animation: notification .75s linear;
+ * ```
+ */
+
+@-webkit-keyframes notification {
+  0% { -webkit-transform: rotateY(-90deg); opacity: 0; }
+  70% { -webkit-transform: rotateY(20deg); opacity: .8; }
+  90% { -webkit-transform: rotateY(-10deg); opacity: 1; }
+  100% { -webkit-transform: rotateY(-0deg); opacity: 1; }
+}
+
+@-moz-keyframes notification {
+  0% { -moz-transform: rotateY(-90deg); opacity: 0; }
+  70% { -moz-transform: rotateY(20deg); opacity: .8; }
+  90% { -moz-transform: rotateY(-10deg); opacity: 1; }
+  100% { -moz-transform: rotateY(-0deg); opacity: 1; }
+}
+
+@-ms-keyframes notification {
+  0% { -ms-transform: rotateY(-90deg); opacity: 0; }
+  70% { -ms-transform: rotateY(20deg); opacity: .8; }
+  90% { -ms-transform: rotateY(-10deg); opacity: 1; }
+  100% { -ms-transform: rotateY(-0deg); opacity: 1; }
+}
+
+@-o-keyframes notification {
+  0% { -o-transform: rotateY(-90deg); opacity: 0; }
+  70% { -o-transform: rotateY(20deg); opacity: .8; }
+  90% { -o-transform: rotateY(-10deg); opacity: 1; }
+  100% { -o-transform: rotateY(-0deg); opacity: 1; }
+}
+
+keyframes notification {
+  0% { transform: rotateY(-90deg); opacity: 0; }
+  70% { transform: rotateY(20deg); opacity: .8; }
+  90% { transform: rotateY(-10deg); opacity: 1; }
+  100% { transform: rotateY(-0deg); opacity: 1; }
+}
+
+.notifications > div {
+  -webkit-animation: notification .75s linear;
+  -moz-animation: notification .75s linear;
+  -ms-animation: notification .75s linear;
+  -o-animation: notification .75s linear;
+  animation: notification .75s linear;
+}
+
+.notifications{position:fixed;}.notifications.top-right{right:10px;top:250px;}
+.notifications.top-left{left:10px;top:25px;}
+.notifications.bottom-left{left:10px;bottom:25px;}
+.notifications.bottom-right{right:10px;bottom:25px;}
+.notifications>div{position:relative;z-index:9999;margin:5px 0px;}
+.notifications.center{top:10%;left:0;width:100%;}.notifications.center>div{margin:5px auto;width:60%;text-align:center;}

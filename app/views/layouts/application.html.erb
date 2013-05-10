@@ -1,68 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-                <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <title>Blog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %> <%= javascript_include_tag "application" %>
+        <%= stylesheet_link_tag "application", :media => "all" %> <%= javascript_include_tag "application" %>
 
-  <%= csrf_meta_tags %>
-</head>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <% if !alert.blank? %>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.top-right').notify({
+message: { text: "<%= alert %>" },
+closable: true,
+type: 'alert',
+fadeOut: {
+enabled: true,
+delay: 7000
+}
+}).show();
+                    });
+</script>
+            <% end %>
 
-  <div class="navbar">
-      <div class="navbar-fixed-top">
-      <div class="navbar-iner">
-              <ul class="nav">
-                  <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
-                  </li>
-                  <% if user_signed_in? %>
+            <% if !notice.blank? %>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('.top-right').notify({
+message: { text: "<%= notice %>" },
+closable: true
+}).show();
+                        });
+</script>
+                <% end %>
 
-                      <li><strong>Hello, <%= current_user.username %>!</strong/></li>
+                <div class="container-fluid">
+                <div class="row-fluid">
+                <div class="navbar">
+                    <div class="navbar-fixed-top">
+                        <div class="navbar-iner">
+                            <ul class="nav offset1">
+                                <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
+                                </li>
+                                <% if user_signed_in? %>
 
-
-                          <li><li class="dropdown" id="accountmenu">
-
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
-
-                      <ul class="dropdown-menu">
-                          <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-                          <li><%= link_to 'Edit Profile'%></li>
-                          <hr>
-                        <li><%= link_to 'Help'%></li>
-                          <hr>
-                       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                      </ul>
-                                                                                                                                                  </li>
-                                                                                                                                                  </li>
-                      <% else %>
-                     <li><%= link_to "about", new_user_registration_path %> </li>
-                      <li><%= link_to "Contact", new_user_session_path %></li>
-                     <% end %>
-
-
-                      </ul>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </div>
- </div>
-</div>
- </div>
-<body>
-    <%= yield :right %>
-    <%= yield :left %>
-    <%= yield %>
- </div>
-</body>
+                                    <li><strong>Hello, <%= current_user.username %>!</strong/></li>
 
 
+                                        <li><li class="dropdown" id="accountmenu">
+
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+                                            <li><%= link_to 'Edit Profile'%></li>
+                                            <hr>
+                                            <li><%= link_to 'Help'%></li>
+                                            <hr>
+                                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                                        </ul>
+                                         </li>
+                                    <% else %>
+                                        <li><%= link_to "about", new_user_registration_path %> </li>
+                                        <li><%= link_to "Contact", new_user_session_path %></li>
+
+                                    <% end %>
 
 
+                                </ul>
+                                                                               </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                <div class="notifications top-right"></div>
+                <%= yield :right %>
+                <%= yield :left %>
+                <%= yield %>
+            </div>
+        </body>
+    </html>
 
-      </div>
-  </div>
- </div>
-
- </div>
-
-</html>
