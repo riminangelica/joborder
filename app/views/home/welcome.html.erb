@@ -1,42 +1,3 @@
-<%unless user_signed_in?%>
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <!--  Carousel - consult the Twitter Bootstrap docs at
-                http://twitter.github.com/bootstrap/javascript.html#carousel -->
-                <div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
-                    <div class="carousel-inner">
-                        <div class="item active"><!-- class of active since it's the first item -->
-                            <%=image_tag "Status/accomplished.png"%>
-                            <div class="carousel-caption">
-                                <p>Caption text here</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="http://placehold.it/1200x480" alt="" />
-                            <div class="carousel-caption">
-                                <p>Caption text here</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="http://placehold.it/1200x480" alt="" />
-                            <div class="carousel-caption">
-                                <p>Caption text here</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="http://placehold.it/1200x480" alt="" />
-                            <div class="carousel-caption">
-                                <p>Caption text here</p>
-                            </div>
-                        </div>
-                    </div><!-- /.carousel-inner -->
-                    <!--  Next and Previous controls below
-                    href values must reference the id for this carousel -->
-                    <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
-                    <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-                </div><!-- /.carousel -->
-            <% else %>
 
                 <script>
                     jQuery(function() {
@@ -60,16 +21,16 @@
                                 <div class="tab-pane active" id="1">
                                     <div>
 
-                                        <h1> Project History</h1>
-                                        <hr> <div class="tabbable">
-                                            <ul class="nav nav-pills">
-                                                <li class="active"><a href="#5" data-toggle="tab">Pending</a></li>
-                                                <li class=""><a href="#6" data-toggle="tab">In Progress</a></li>
-                                                <li class=""><a href="#7" data-toggle="tab">Completed</a></li>
+                                        <div class="tabbable-fixed-top">
+                                             <ul class="nav nav-pills">
+                                                 <li><h1>project history</h1></li>
+                                                 <li style="padding-top:10px; padding-left:10px;" class="active"><a href="#5" data-toggle="tab">Pending</a></li>
+                                                <li style="padding-top:10px"class=""><a href="#6" data-toggle="tab">In Progress</a></li>
+                                                <li style="padding-top:10px" class=""><a href="#7" data-toggle="tab">Completed</a></li>
                                             </ul>
-                                            <hr>                                            <div class="tab-content">
+                                                                                       <div class="tab-content">
                                                 <div class="tab-pane active" id="5">
-                                                    <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
+                                                <p class="Head"><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending </b>
                                                     <% if !@projects.nil? %>
                                                         <div class="CSSTableGenerator" >
                                                             <table>
@@ -156,7 +117,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="2">
-                                    <h3>Project Portfolio</h3>
+                                    <h3>Project Portfolio</h3> <%=button_to "Edit Portfolio"%>
                                     <hr>
                                     <% @projects.each do |project| %>
                                         <div class="span3">
@@ -210,9 +171,6 @@
                 </div>
             </div>
 
-
-
-        <% end %>
         <script type="text/javascript" src="jquery-1.3.2.js"></script>
         <script src="jquery.capSlide.js" type="text/javascript"></script>
         <script type="text/javascript">

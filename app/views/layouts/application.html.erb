@@ -9,21 +9,19 @@
 </head>
 
   <div class="navbar">
-      <div class="navbar-inner">
-          <div class="container">
-                                                                                                         </div>
+      <div class="navbar-fixed-top">
+      <div class="navbar-iner">
               <ul class="nav">
                   <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
-
+                  </li>
                   <% if user_signed_in? %>
 
                       <li><strong>Hello, <%= current_user.username %>!</strong/></li>
 
 
+                          <li><li class="dropdown" id="accountmenu">
 
-                      <li class="dropdown" id="accountmenu">
-
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= image_tag "Navbar/settings.png", :size=>"40x40" %><b class="caret"></b></a>
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
 
                       <ul class="dropdown-menu">
                           <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
@@ -34,10 +32,10 @@
                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                       </ul>
                                                                                                                                                   </li>
-
+                                                                                                                                                  </li>
                       <% else %>
-                      <li><%= link_to "Sign up", new_user_registration_path %> </li>
-                      <li><%= link_to "Login", new_user_session_path %></li>
+                     <li><%= link_to "about", new_user_registration_path %> </li>
+                      <li><%= link_to "Contact", new_user_session_path %></li>
                      <% end %>
 
 
@@ -48,7 +46,7 @@
       </div>
   </div>
  </div>
-
+</div>
  </div>
 <body>
     <%= yield :right %>
