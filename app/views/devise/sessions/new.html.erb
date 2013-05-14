@@ -33,7 +33,15 @@
             </div><!--example-->
         </div> <!--row-fluid end-->
     </div> <!-- container-fluid end -->
-
+    <div>
+    <div class="offset1" style="width=80%; margin-right:100px;">
+        <center><br><br><br><br>
+            <h1 style="font-size:100px"> WEB APP NAME </h1>
+            <br> <h2>Hi how you doing</h2>
+            <br><br>   </center>
+    </div>
+</div>
+        <div>
         <div id="myCarousel" class="carousel slide">
             <!--i Carousel items -->
             <div class="carousel-inner">
@@ -49,15 +57,36 @@
 
     </div>
 
-        <div class="haha" style="height: 100%; float:left; width:100%;" >
-                   <div class="offset1">
+    <div style="background-color: #ff3d00">
+        <div class="offset1">
+        <h1>Orange div think of something</h1>
+</div></div>
+    <div class="offset1">
+        <h1> WEE</h1>
+    </div>
 
-                <p><b>HAVE A JOB FOR US?</p>
-                <div style="float:left">
-                    <%= image_tag 'Home/JOBORDERbuttoncopy.png', :size=>"200x200" %>
+
+
+        <div class="haha" style="height: 100%; float:left; width:100%;" >
+                   <div class="offset1" style="width:80%">
+                       <hr>
+
+                <div class="span3" style="float:left; ">
+                    <center>
+                        POST A JOB <br>
+                        <%= link_to ( image_tag 'Home/JOBORDERbuttoncopy.png', :size=>"200x200"), "/orders/new" %>
+
                 </div>
-                <a style="float:left" data-toggle="modal" href="#example" class="btn btn-primary btn-large">Sign In</a>
+                <div class="span4" style="float:left;">
+                    <center>
+                        JOIN US<br><br>
+                <a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Sign In</a>
             </div>
+            <div class="span3" style="float:left;">
+                <center>WHAt's up
+
+                </div>
+
         </div>
 
 </div>
