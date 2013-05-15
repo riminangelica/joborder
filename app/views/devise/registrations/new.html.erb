@@ -1,8 +1,11 @@
 <% content_for :left do %>
     <div class="row-fluid">
-    <div class="span5 offset3">
-    <h2>Sign up</h2>
-<table>
+    <div class="span4 offset4" style="margin-top:100px; box-shadow: 0px 0px 15px #e5e5e5">
+    <div style="background: #20815d; color: #fff; padding:2px">
+        <center>        <h4>CREATE AN ACCOUNT</h4>
+    </div>
+    <div style="background:#e4e4e4; padding:10px">
+        <center><table>
   <tr>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -26,5 +29,6 @@
 
   <%= render "devise/shared/links" %>
 <%end%>
+</div>
 </div>
 </div>

@@ -1,10 +1,10 @@
 <%unless user_signed_in?%>
     <div class ="container-fluid">
         <div class = "row-fluid">
-            <div id="example" class="modal hide fade in" style="display: none; ">
-                <div class="modal-header">
+            <div id="example" class="modal hide fade in" style="display: none; border-radius:0px ">
+                <div class="modal-header" style="background:#20815d; color: #fff">
                     <a class="close" data-dismiss="modal">×</a>
-                    <h3>Sign In</h3>
+                    <h3>SIGN IN</h3>
                 </div>
                 <div class="modal-body">
                     <center><%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>

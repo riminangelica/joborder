@@ -34,11 +34,12 @@ closable: true
 </script>
                 <% end %>
 
-               <div class="navbar">
-                   <div class="navbar-fixed">
-                       <div class="offset1">
-                           <ul class="nav">
-                                <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
+                <div class="navbar">
+                    <div class="navbar-fixed">
+                        <div class="container-fluid">
+                        <div class="offset1">
+                               <ul class="nav">
+                                   <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
                                 </li>
                                 <% if user_signed_in? %>
 
@@ -69,7 +70,8 @@ closable: true
                                 </ul>
                             </div>
                        </div>
-        </div>
+                   </div>
+               </div>
                 <div class="notifications top-right"></div>
                 <%= yield :right %>
                 <%= yield :left %>
