@@ -5,9 +5,12 @@ jQuery(function() {
 });
 </script>
 <div style="margin-bottom:50px;width:90%; padding-top:20px">
-  <div class="offset1">
+    <div class="offset1">
+        <div style="padding:10px; background: #20815d; height: 50px; color: #fff;">
     <h1><%= current_user.first_name %> <%= current_user.surname %></h1>
     <hr>
+</div>
+<div style="color: #000;padding:5px; background: #e4e4e4;">
     <div class="tabbable tabs-left">
       <ul class="nav nav-tabs nav-stacked">
         <li class="active"><a href="#1" data-toggle="tab"><%= image_tag "IndexHome/projecticon.png", :size=>"70x70"%></a></li>
@@ -16,7 +19,7 @@ jQuery(function() {
         <li><a href="#4" data-toggle="tab"><%= image_tag "Navbar/helpicon.png", :size=>"70x70"%></a></li>
       </ul>
       <div class="tab-content">
-        <div class="tab-pane active" id="1">
+        <div class="tab-pane" id="2">
           <div>
             <div class="tabbable-fixed-top">
               <ul class="nav nav-pills">
@@ -96,7 +99,7 @@ jQuery(function() {
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="2">
+        <div class="tab-pane" id="3">
           <h3>Project Portfolio</h3> <%=button_to "Edit Portfolio"%>
           </hr>
           <% @projects.each do |project| %>
@@ -110,7 +113,7 @@ jQuery(function() {
             </div>
           <%end%>
         </div>
-        <div class="tab-pane" id="3">
+        <div class="tab-pane" id="4">
           <h3>Job Request Form</h3>
           </hr>
           <%= form_for(:order, :url => { :controller => 'orders',:action => 'new'}) do |f|%> <br>
@@ -135,12 +138,13 @@ jQuery(function() {
             </center>
           <% end %>
         </div>
-        <div class ="tab-pane" id="4">
-          WOOOO
+        <div class ="tab-pane active" id="1">
+            <h3>User Information</h3>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 <div class="haha" style=" font-size: 10px;height:25px; position: fixed; width:100%; bottom:0">
   <div class="offset11">All rights reserved. Chos.</div>

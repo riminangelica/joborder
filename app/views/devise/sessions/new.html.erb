@@ -38,6 +38,8 @@
         <center><br><br><br><br>
             <h1 style="font-size:100px"> WEB APP NAME </h1>
             <br> <h2>Hi how you doing</h2>
+            <a data-toggle="modal" href="#example" class="btn btn-primary btn-large btn1" style="background: #20815d; border-radius:0px; text-transform:uppercase">Log In</a> <%= link_to 'Sign Up', new_user_registration_path, :class=>"btn-primary btn-large btn", :style=>"background: #20815d; border-radius:0px; text-transform:uppercase" %>
+
             <br><br>   </center>
     </div>
 </div>
@@ -82,15 +84,13 @@
         <div class="span4" style="float:left;">
           <center>
             JOIN US<br><br>
-            <a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Sign In</a>
-
             <table>
               <tr>
                 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
                 <%= devise_error_messages! %>
 
                 <tr><td><%= f.label :username %></td>
-                  <td><%= f.text_field :username, :autofocus => true, :placeholder => "Type your username" %></td></tr>
+                <td><%= f.text_field :username, :placeholder => "Type your username" %></td></tr>
 
                   <tr><td><%= f.label :email %></td>
                     <td><%= f.email_field :email, :placeholder => "blah@blah.blah" %></td></tr>

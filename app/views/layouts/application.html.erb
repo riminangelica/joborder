@@ -42,9 +42,9 @@ closable: true
                                 </li>
                                 <% if user_signed_in? %>
 
-                                    <li><strong>Hello, <%= current_user.username %>!</strong/></li>
+                                    <li><strong><br><br>Hello, <%= current_user.username %>!</strong/></li>
 
-
+                                        <li style="color:transparent; padding-left:630px;">. </li>
                                         <li><li class="dropdown" id="accountmenu">
 
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
@@ -61,7 +61,8 @@ closable: true
                                     <% else %>
                                         <li><%= link_to "about", new_user_registration_path %> </li>
                                         <li><%= link_to "Contact", new_user_session_path %></li>
-
+                                        <li style="padding-left:600px; color:transparent">.</li>
+                                        <li> <%= link_to "Sign up", "/users/sign_up"%></li>
                                     <% end %>
 
 
