@@ -10,13 +10,17 @@ class HomeController < ApplicationController
 
   def welcome
   	@completed = Project.where(:user_id => current_user.id,
-                              :project_status => "Completed")
-  	@pending = Project.where(:user_id => current_user.id,
-                              :project_status => "Pending")
+  		:project_status => "Completed")
   	@inProgress = Project.where(:user_id => current_user.id,
-                              :project_status => "In Progress")
+  		:project_status => "In Progress")
   	@projects = Project.where(:user_id => current_user.id)
-  	@orders = Order.where(:user_id => current_user.id)
+  	
+  	@pending = Order.where(:user_id => current_user.id,
+  		:status => "Pending")
+  	@current_orders = Order.where(:user_id => current_user.id,
+  		:status => "In Progress")
+  	@completed_orders = Order.where(:user_id => current_user.id,
+  		:status => "Completed")
   end
 
 end
