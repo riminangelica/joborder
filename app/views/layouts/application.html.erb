@@ -1,82 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Blog</title>
-        <%= stylesheet_link_tag "application", :media => "all" %> <%= javascript_include_tag "application" %>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag "application", :media => "all" %> <%= javascript_include_tag "application" %>
 
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-        <% if !alert.blank? %>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('.top-right').notify({
-message: { text: "<%= alert %>" },
-closable: true,
-type: 'alert',
-fadeOut: {
-enabled: true,
-delay: 7000
-}
-}).show();
-                    });
-</script>
-            <% end %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if !alert.blank? %>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.top-right').notify({
+      message: { text: "<%= alert %>" },
+      closable: true,
+      type: 'alert',
+      fadeOut: {
+        enabled: true,
+        delay: 7000
+      }
+    }).show();
+  });
+  </script>
+  <% end %>
 
-            <% if !notice.blank? %>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $('.top-right').notify({
-message: { text: "<%= notice %>" },
-closable: true
-}).show();
-                        });
-</script>
-                <% end %>
+  <% if !notice.blank? %>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.top-right').notify({
+      message: { text: "<%= notice %>" },
+      closable: true
+    }).show();
+  });
+  </script>
+  <% end %>
 
-                <div class="navbar">
-                    <div class="navbar-fixed">
-                        <div class="container-fluid">
-                        <div class="offset1">
-                               <ul class="nav">
-                                   <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %>
-                                </li>
-                                <% if user_signed_in? %>
-
-                                    <li><strong><br><br>Hello, <%= current_user.username %>!</strong/></li>
-
-                                        <li style="color:transparent; padding-left:630px;">. </li>
-                                        <li><li class="dropdown" id="accountmenu">
-
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
-
-                                        <ul class="dropdown-menu">
-                                            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-                                            <li><%= link_to 'Edit Profile'%></li>
-                                            <hr>
-                                            <li><%= link_to 'Help'%></li>
-                                            <hr>
-                                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                                        </ul>
-                                         </li>
-                                    <% else %>
-                                        <li><%= link_to "about", new_user_registration_path %> </li>
-                                        <li><%= link_to "Contact", new_user_session_path %></li>
-                                        <li style="padding-left:600px; color:transparent">.</li>
-                                        <li> <%= link_to "Sign up", "/users/sign_up"%></li>
-                                    <% end %>
-
-
-                                </ul>
-                            </div>
-                       </div>
-                   </div>
-               </div>
-                <div class="notifications top-right"></div>
-                <%= yield :right %>
-                <%= yield :left %>
-                <%= yield %>
-            </div>
-        </body>
-    </html>
+  <div class="navbar">
+    <div class="navbar-fixed">
+      <div class="container-fluid">
+        <div class="offset1">
+         <ul class="nav">
+           <% if user_signed_in? %>
+           <li><%= link_to "GO HOME #{current_user.first_name}, YOU'RE DRUNK", root_path %></li>
+           <li><strong><br><br>Hello, <%= current_user.username %>!</strong/></li>
+           <li style="color:transparent; padding-left:630px;">. </li>
+           <li><li class="dropdown" id="accountmenu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+              <li><%= link_to 'Edit Profile'%></li>
+              <hr>
+              <li><%= link_to 'Help'%></li>
+              <hr>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+          <% else %>
+          <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %></li>
+          <li><%= link_to "about", new_user_registration_path %> </li>
+          <li><%= link_to "Contact", new_user_session_path %></li>
+          <li style="padding-left:600px; color:transparent">.</li>
+          <li> <%= link_to "Sign up", "/users/sign_up"%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="notifications top-right"></div>
+<%= yield :right %>
+<%= yield :left %>
+<%= yield %>
+</div>
+</body>
+</html>
 

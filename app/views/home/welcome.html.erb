@@ -142,15 +142,17 @@ jQuery(function() {
         </div>
         <div class="tab-pane" id="3">
           <h3>Project Portfolio</h3> <%=button_to "Edit Portfolio"%>
-          </hr>
-          <% @projects.each do |project| %>
-              <div class="span3" style="float: left; height: 500px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
-                  <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
-                  <p class="ic_category"><%= project.category.name%></p>
-                  <h3><%= project.title%></h3>
-                  <p><%= project.description %></p>
+          <hr>
+          <div class="span9">
+            <% @projects.each do |project| %>
+            <div style="float: left; height: 500px; width: 25%; margin: 5px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
+              <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+              <p class="ic_category"><%= project.category.name%></p>
+              <h3><%= project.title%></h3>
+              <p><%= project.description %></p>
             </div>
-          <%end%>
+            <%end%>
+          </div>
         </div>
         <div class="tab-pane" id="4">
           <h3>Job Request Form</h3>
