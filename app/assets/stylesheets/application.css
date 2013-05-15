@@ -314,3 +314,9 @@ keyframes notification {
 .notifications.bottom-right{right:10px;bottom:25px;}
 .notifications>div{position:relative;z-index:9999;margin:5px 0px;}
 .notifications.center{top:10%;left:0;width:100%;}.notifications.center>div{margin:5px auto;width:60%;text-align:center;}
+
+.title{
+    font-family: Oswald;
+    font-size: 1.3em;
+    text-transform: capitalize;
+}

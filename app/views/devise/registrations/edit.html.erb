@@ -34,10 +34,10 @@ $(document).ready(function() {
     }
 
   });
-);
+});
 </script>
 
-<div class=row-fluid">
+<div class="row-fluid">
   <div class="span10 offset1">
     <div class="tabbable tabs-left">
       <ul class="nav nav-tabs nav-stacked">
@@ -54,69 +54,73 @@ $(document).ready(function() {
             <table>
               <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
                 <%= devise_error_messages! %>
-              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {:id => "e2_2"}) %>
 
-              <tr><td><%= f.label :username %></td><td><%= f.text_field :username, :autofocus => true %></td></tr>
+              <tr><td width="103px"><%= f.label :username %></td><td><%= f.text_field :username, :autofocus => true %></td></tr>
 
-              <tr><td><%= f.label :first_name %></td><td><%= f.text_field :first_name %></td></tr>
+              <tr><td width="103px"><%= f.label :first_name %></td><td><%= f.text_field :first_name %></td></tr>
 
-              <tr><td><%= f.label :middle_initial %></td><td><%= f.text_field :middle_initial %></td></tr>
+              <tr><td width="103px"><%= f.label :middle_initial %></td><td><%= f.text_field :middle_initial %></td></tr>
 
-              <tr><td><%= f.label :surname %></td><td><%= f.text_field :surname %></td></tr>
+              <tr><td width="103px"><%= f.label :surname %></td><td><%= f.text_field :surname %></td></tr>
 
-              <tr><td><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
+              <tr><td width="103px"><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
               <% end %>
+
+              <tr><td><%= f.label :school %></td><td><%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools") %></tr></td>
             </table>
 
-            <%= f.label :school %> <%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools") %>
+            <table id="ADMU">
+              <tr id="ADMU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']]) %></td></tr>
+              <tr id="ADMU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]]) %></td></tr>
+            </table>
 
-            <div id="ADMU">
-              <%= f.label :course %> <%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']]) %>
-              <%= f.label :organization %> <%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]]) %>
-            </div>
+            <table id="DLSU">
+              <tr id="DLSU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS RICH KID'],['BS COOL KID']]) %></td></tr>
+              <tr id="DLSU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]]) %></td></tr>
+            </table>
 
-            <div id="DLSU">
-              <%= f.label :course %> <%= f.select(:course, [['BS RICH KID'],['BS COOL KID']]) %></td>
-              <%= f.label :organization %> <%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]]) %></td>
-            </div>
+            <table id="UPD">
+              <tr id="UPD"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']]) %></td></tr>
+              <tr id="UPD"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]]) %></td></tr>
+            </table>
 
-            <div id="UPD">
-              <%= f.label :course %> <%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']]) %></td>
-              <%= f.label :organization %> <%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]]) %></td>
-            </div>
-
-            <div id="UST">
-              <%= f.label :course %> <%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']]) %></td>
-              <%= f.label :organization %> <%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]]) %></td>
-            </div>
+            <table id="UST">
+              <tr id="UST"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']]) %></td></tr>
+              <tr id="UST"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]]) %></td></tr>
+            </table>
 
             <table>
-            <tr><td><%= f.label "New password" %></td><td>
-                <%= f.password_field :password, :autocomplete => "off" %><br><small>Leave blank to remain unchanged.</small></td></tr>
+              <tr><td><%= f.label "Services offered" %></td><td><%= f.collection_select(:category_id, Category.all, :id, :name) %></td></tr>
+            </table>
 
-            <tr><td><%= f.label :password_confirmation %></td><td><%= f.password_field :password_confirmation %></td></tr>
+            <hr>
 
-            <% if f.object.encrypted_password.present? %>
-              <tr><td><%= f.label :current_password %></td><td>
+            <table>
+              <tr><td><%= f.label "New password" %></td>
+                <td><%= f.password_field :password, :autocomplete => "off" %><br><small>Leave blank to remain unchanged.</small></td>
+              </tr>
+              <tr><td><%= f.label :password_confirmation %></td><td><%= f.password_field :password_confirmation %></td></tr>
+
+              <% if f.object.encrypted_password.present? %>
+                <tr><td><%= f.label :current_password %></td><td>
                   <%= f.password_field :current_password %><br><small>Enter password to confirm changes.</small></td></tr>
+              <% end %>
+              <tr><td><%= f.submit "Update" %></td></tr>
             <% end %>
-            <tr><td><%= f.submit "Update" %></td></tr>
-          <% end %>
-          </table>
-          <h3>Cancel my account</h3>
+            </table>
+            <h3>Cancel my account</h3>
 
-          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
 
-          <%= link_to "Back", :back %>
-
+            <%= link_to "Back", :back %>
+          </div>
         </div>
-
-      </div>
-      <div class="tab pane" id="2">
-        HEHEHEHEHE
+        <div class="tab pane" id="2">
+          HEHEHEHEHE
+        </div>
       </div>
     </div>
   </div>
