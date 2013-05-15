@@ -59,43 +59,62 @@
         </div>
 
     </div>
-    <div style="float:left">
-    <div class="span3 offset1" style="float:left">
+    <div class="container">
+    <div style="float:left; padding-left:40px">
+    <div class="span3" style="float:left">
         WOO
     </div>
-    <div class="span7" style="padding-left:51px;float:left; text-align: justify">
-        <h1>HEadinG</H1>
+        <div class="span7" style="padding-left:51px;float:left; text-align: justify">
+                   <h1>HEadinG</H1>
         <P style="line-height: 30px;">Yolo ipsum what you bothering me for? don't tell me, I don't care omnis quos possimus adipisci. Est doloribus quia aliquid voluptas aspernatur architecto. Et cumque I can almost guarantee she know the deal vero earum dolore odio doloremque. Ut dolore sunt facilis ratione they say love is in the air, so I my only wish is I die real cause that truth hurts, and those lies heal.</P>
         <br><br></div>
 </div>
-
-        <div class="haha" style="height: 100%; float:left; width:100%;" >
-                   <div class="offset1" style="width:80%">
-                       <hr>
-
-                <div class="span3" style="float:left; ">
-                    <center>
-                        POST A JOB <br>
-                        <%= link_to ( image_tag 'Home/JOBORDERbuttoncopy.png', :size=>"200x200"), "/orders/new" %>
-
-                </div>
-                <div class="span4" style="float:left;">
-                    <center>
-                        JOIN US<br><br>
-                <a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Sign In</a>
-            </div>
-            <div class="span3" style="float:left;">
-                <center>WHAt's up
-
-                </div>
+</div>
+<div class="haha"  >
+  <div class="container">
+    <div class="span11" style="padding-left:40px; margin-right:40px; padding-top:40px;">
+      <div class="span3" style="float:left; ">
+        <center>
+          POST A JOB <br>
+          <%= link_to ( image_tag 'Home/JOBORDERbuttoncopy.png', :size=>"200x200"), "/orders/new" %>
 
         </div>
+        <div class="span4" style="float:left;">
+          <center>
+            JOIN US<br><br>
+            <a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Sign In</a>
 
-</div>
+            <table>
+              <tr>
+                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
 
-</div>
-<%end%>
-        <script type="text/javascript" src="jquery-1.3.2.js"></script>
+                <tr><td><%= f.label :username %></td>
+                  <td><%= f.text_field :username, :autofocus => true, :placeholder => "Type your username" %></td></tr>
+
+                  <tr><td><%= f.label :email %></td>
+                    <td><%= f.email_field :email, :placeholder => "blah@blah.blah" %></td></tr>
+
+                    <!-- <#% if f.object.password_required? %> -->
+                    <tr><td><%= f.label :password %></td>
+                      <td><%= f.password_field :password, :placeholder => "********" %></td></tr>
+
+                      <tr><td><%= f.label "Re-enter" %></td>
+                        <td><%= f.password_field :password_confirmation, :placeholder => "Re-enter password plis :3" %></td></tr>
+                        <!-- <#% end %> -->
+                      </table>
+                      <div><%= f.submit "Sign up" %></div>
+                      <%end%>
+                    </div>
+                    <div class="span3" style="float:left;">
+                      <center>WHAt's up
+                      </div>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+
+                                    <script type="text/javascript" src="jquery-1.3.2.js"></script>
         <script src="jquery.capSlide.js" type="text/javascript"></script>
         <script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>
             <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-carousel.js"></script>
