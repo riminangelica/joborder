@@ -8,14 +8,11 @@ Blog::Application.routes.draw do
   match '/users/auth:provider' => 'omniauth_callbacks#passthru', method: :get
   match '/users/auth/:provider/callback' => 'omniauth_callbacks#passthru', method: :get
 
-  match '/orders/new',
-    :to => 'orders#new'
-
-  match '/projects/new',
-    :to => 'projects#new'
-
-  match '/:user_id',
-    :to => 'users#show'
+  match '/orders/new', to: 'orders#new'
+  match '/projects/new', to: 'projects#new'
+  match '/:username', to: 'users#show'
+  match '/edit/project/:id', to: 'projects#edit'
+  match '/:username/:title', to: 'projects#show'
 
   root :to => "home#welcome"
 

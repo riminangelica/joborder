@@ -1,16 +1,14 @@
 <div class="row-fluid">
-    <div class="span10 offset1">
-        <h1><%= current_user.first_name %>'s Portfolio</h1>
-
-        <h2><%= current_user.first_name %>'s Profile</h2>
-        <b>Full Name: </b> <%= current_user.first_name %> <%= current_user.middle_initial %> <%= current_user.surname %><br>
-        <b>E-mail:</b> <%= current_user.email %><br>
-        <b>Username: </b> <%= current_user.username %><br>
-        <b>Year: </b> <%= current_user.year %><br>
-        <b>School: </b> <%= current_user.school %><br>
-        <b>Course: </b> <%= current_user.course %><br>
-        <b>Organization: </b> <%= current_user.organization %><br>
-        <b>Services offered: </b> <%= current_user.category.name %><br>
-
-</div>
+  <div class="span10 offset1">
+    <h2><%= @user.first_name %>'s Profile</h2>
+    <b>Full Name: </b> <%= @user.first_name %> <%= @user.middle_initial %> <%= @user.surname %><br>
+    <b>E-mail:</b> <%= @user.email %><br>
+    <b>Username: </b> <%= @user.username %><br>
+    <b>Year: </b> <%= @user.year %><br>
+    <b>School: </b> <%= @user.school %><br>
+    <b>Course: </b> <%= @user.course %><br>
+    <b>Organization: </b> <%= @user.organization %><br>
+    <b>Services offered: </b> <%= @user.category.name %><br>
+    <%= link_to "View #{@user.first_name}'s Portfolio", "/portfolio/#{@user.username}" %>
+  </div>
 </div>
