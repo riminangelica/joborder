@@ -69,27 +69,27 @@ $(document).ready(function() {
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
               <% end %>
 
-              <tr><td><%= f.label :school %></td><td><%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools") %></tr></td>
+              <tr><td><%= f.label :school %></td><td><%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools", :selected => current_user.school) %></tr></td>
             </table>
 
             <table id="ADMU">
-              <tr id="ADMU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']]) %></td></tr>
-              <tr id="ADMU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]]) %></td></tr>
+              <tr id="ADMU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']], :selected => current_user.course) %></td></tr>
+              <tr id="ADMU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]], :selected => current_user.organization) %></td></tr>
             </table>
 
             <table id="DLSU">
-              <tr id="DLSU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS RICH KID'],['BS COOL KID']]) %></td></tr>
-              <tr id="DLSU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]]) %></td></tr>
+              <tr id="DLSU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS RICH KID'],['BS COOL KID']], :selected => current_user.course) %></td></tr>
+              <tr id="DLSU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]], :selected => current_user.organization) %></td></tr>
             </table>
 
             <table id="UPD">
-              <tr id="UPD"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']]) %></td></tr>
-              <tr id="UPD"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]]) %></td></tr>
+              <tr id="UPD"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']], :selected => current_user.course) %></td></tr>
+              <tr id="UPD"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]], :selected => current_user.organization) %></td></tr>
             </table>
 
             <table id="UST">
-              <tr id="UST"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']]) %></td></tr>
-              <tr id="UST"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]]) %></td></tr>
+              <tr id="UST"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']], :selected => current_user.course) %></td></tr>
+              <tr id="UST"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]], :selected => current_user.organization) %></td></tr>
             </table>
 
             <table>
@@ -113,7 +113,7 @@ $(document).ready(function() {
             </table>
             <h3>Cancel my account</h3>
 
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
             <%= link_to "Back", :back %>
           </div>
