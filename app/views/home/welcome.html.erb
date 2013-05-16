@@ -181,7 +181,15 @@ jQuery(function() {
           <% end %>
         </div>
         <div class ="tab-pane active" id="1">
-            <h3>User Information</h3>
+          <h3><%= current_user.first_name %>'s Profile</h3>
+          <b>Full Name: </b> <%= current_user.first_name %> <%= current_user.middle_initial %> <%= current_user.surname %><br>
+          <b>E-mail:</b> <%= current_user.email %><br>
+          <b>Username: </b> <%= current_user.username %><br>
+          <b>Year: </b> <%= current_user.year %><br>
+          <b>School: </b> <%= current_user.school %><br>
+          <b>Course: </b> <%= current_user.course %><br>
+          <b>Organization: </b> <%= current_user.organization %><br>
+          <b>Services offered: </b> <%= current_user.category.name %><br>
         </div>
       </div>
     </div>
