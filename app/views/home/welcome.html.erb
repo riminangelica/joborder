@@ -5,6 +5,7 @@ jQuery(function() {
 });
 </script>
 <div style="margin-bottom:50px;width:90%; padding-top:20px">
+    <div class="container">
     <div class="offset1">
         <div style="padding:10px; background: #20815d; height: 50px; color: #fff;">
     <h1><%= current_user.first_name %> <%= current_user.surname %></h1>
@@ -59,8 +60,8 @@ jQuery(function() {
                       <% @inProgress.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
                           <div class="span3" style="float: left; height: 350px; width: 200px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
-                            <%=link_to (image_tag project.image_url, :title=>project.title, 
-                              :id=>"capslide_img_cont1"), project.image_url, 
+                            <%=link_to (image_tag project.image_url, :title=>project.title,
+                                        :id=>"capslide_img_cont1", :class=>"fancybox"), project.image_url,
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
                             <div class="title"><%= link_to project.title, "/#{current_user.username}/#{project.title}" %></div>
@@ -79,8 +80,8 @@ jQuery(function() {
                       <% @current_orders.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
                           <div class="span3" style="float: left; height: 350px; width: 200px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
-                            <%=link_to (image_tag "inprogress.png", :title=>project.project_name, 
-                              :id=>"capslide_img_cont1"), "inprogress.png", 
+                            <%=link_to (image_tag "inprogress.png", :title=>project.project_name,
+                              :id=>"capslide_img_cont1"), "inprogress.png",
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
                             <div class="title"><%= link_to project.project_name, "/#{current_user.username}/#{project.project_name}" %></div>
@@ -101,8 +102,8 @@ jQuery(function() {
                       <% @completed.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
                           <div class="span3" style="float: left; height: 350px; width: 200px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
-                            <%=link_to (image_tag project.image_url, :title=>project.title, 
-                              :id=>"capslide_img_cont1"), project.image_url, 
+                            <%=link_to (image_tag project.image_url, :title=>project.title,
+                              :id=>"capslide_img_cont1"), project.image_url,
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
                             <div class="title"><%= link_to project.title, "/#{current_user.username}/#{project.title}" %></div>
@@ -121,8 +122,8 @@ jQuery(function() {
                       <% @completed_orders.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
                           <div class="span3" style="float: left; height: 350px; width: 200px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
-                            <%=link_to (image_tag "goojab.gif", :title=>project.project_name, 
-                              :id=>"capslide_img_cont1"), "goojab.gif", 
+                            <%=link_to (image_tag "goojab.gif", :title=>project.project_name,
+                              :id=>"capslide_img_cont1"), "goojab.gif",
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
                             <div class="title"><%= link_to project.project_name, "/#{current_user.username}/#{project.project_name}" %></div>
@@ -185,6 +186,7 @@ jQuery(function() {
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 <div class="haha" style=" font-size: 10px;height:25px; position: fixed; width:100%; bottom:0">

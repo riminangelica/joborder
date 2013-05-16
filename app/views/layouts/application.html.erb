@@ -36,15 +36,14 @@
 
   <div class="navbar">
     <div class="navbar-fixed">
-      <div class="container-fluid">
         <div class="offset1">
-         <ul class="nav">
+            <ul class="nav">
            <% if user_signed_in? %>
            <li><%= link_to "GO HOME #{current_user.first_name}, YOU'RE DRUNK", root_path %></li>
            <li><strong><br><br>Hello, <%= current_user.username %>!</strong/></li>
-           <li style="color:transparent; padding-left:630px;">. </li>
-           <li><li class="dropdown" id="accountmenu">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<b class="caret"></b></a>
+           <li style="color:transparent; padding-left:600px;">. </li>
+           <li class="dropdown" id="accountmenu">
+           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=image_tag 'Devise/settings.png', :size=>"30x30", :style=>"margin:0px" %><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
               <li><%= link_to 'Edit Profile'%></li>
@@ -58,13 +57,12 @@
           <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %></li>
           <li><%= link_to "about", new_user_registration_path %> </li>
           <li><%= link_to "Contact", new_user_session_path %></li>
-          <li style="padding-left:600px; color:transparent">.</li>
+          <li style="padding-left:530px; color:transparent">.</li>
           <li> <%= link_to "Sign up", "/users/sign_up"%></li>
           <% end %>
         </ul>
       </div>
     </div>
-  </div>
 </div>
 <div class="notifications top-right"></div>
 <%= yield :right %>
