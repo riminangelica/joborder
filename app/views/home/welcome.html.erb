@@ -158,30 +158,40 @@ jQuery(function() {
         <div class="tab-pane" id="4">
           <h3>Job Request Form</h3>
           </hr>
+
           <%= form_for(:order, :url => { :controller => 'orders',:action => 'new'}) do |f|%> <br>
-            <center>
-              <table>
-                <tr><td>Project Name:</td><td> <%= f.text_field :project_name %></td></tr>
-                <tr><td>Category:</td><td> <%= f.collection_select(:category_id, Category.all, :id, :name)%> </td><tr>
-                <tr><td>First Name:</td><td><%= f.text_field :first_name %></td></tr>
+              <div style="float:left; padding-left:50px">
+                  <h4>CLIENT INFORMATION:</h4>
+                  <table>
+                     <tr><td>First Name:</td><td><%= f.text_field :first_name %></td></tr>
                 <tr><td>Last Name:</td><td> <%= f.text_field :surname%> </td></tr>
                 <tr><td>E-mail:</td><td> <%= f.text_field :email %> </td></tr>
                 <tr><td>Contact No.: </td><td><%= f.text_field :mobile %> </td></tr>
-                <tr><td>Project Description: </td><td><%= f.text_field :projectdescription %> </td></tr>
+                <td colspan="2"><h4>STUDENT OF CHOICE:</h4></td>
+                <tr><td>Category:</td><td> <%= f.collection_select(:category_id, Category.all, :id, :name)%> </td><tr>
                 <tr><td>Number of Workers Needed:</td><td> <%= f.text_field :number_of_workers %> </td><tr>
                 <tr><td>Skills Needed:</td><td><%= f.text_field :skills%> </td></tr>
                 <tr><td>User/s of Choice:</td><td><%= f.collection_select(:user_id, User.all, :id, :first_name)%> </td></tr>
-                <tr><td>Technicalities:</td><td><%= f.text_field :technicalities %> </td></tr>
-                <tr><td>Aesthetics: </td><td><%= f.text_field :aesthetics %> </td></tr>
                 <tr><td>Target Date:</td><td> <%= f.text_field :target_date%> </td><tr>
-                <tr><td>Start Date: </td><td><%= f.text_field :start_id%></td></tr>
-              </table>
-              <%= f.submit "Post Job Order" %> <br>
-            </center>
-          <% end %>
+                        <tr><td>Start Date: </td><td><%= f.text_field :start_id%></td></tr>
+                    </table>
+                </div>
+                <div style="float:left; padding-left:10px">
+                    <h4>PROJECT DETAILS:</h4>
+                    <table>
+                        <tr><td>Project Name:</td><td> <%= f.text_field :project_name %></td></tr>
+                        <tr><td>Project Description: </td><td><%= f.text_area :projectdescription, :style=>"height:100px" %> </td></tr>
+                        <tr><td>Technicalities:</td><td><%= f.text_area :technicalities, :style=>"height:100px" %> </td></tr>
+                        <tr><td>Aesthetics: </td><td><%= f.text_area :aesthetics, :style=>"height:100px" %> </td></tr>
+
+                        <tr><td></td><td align="right"><%= f.submit "Post Job Order" %></td></tr> <br>
+          </table>
+        <% end %>
+    </div>
         </div>
         <div class ="tab-pane active" id="1">
             <h3>User Information</h3>
+
         </div>
       </div>
     </div>
