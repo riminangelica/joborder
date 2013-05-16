@@ -32,7 +32,7 @@ jQuery(function() {
                 <div class="tab-pane active" id="5">
                   <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
                   <div class="CSSTableGenerator">
-                    <% if !@pending.nil? %>
+                    <% if @pending.count > 0 %>
                       <table>
                         <% @pending.in_groups_of(4, false).each do |group| %>
                         <tr>
@@ -48,14 +48,14 @@ jQuery(function() {
                         <% end %>
                       </table>
                     <% else %>
-                      @user.first_name has no pending job requests.
+                      <%= @user.first_name %> has no pending job requests.
                     <% end %>
                   </div>
                 </div>
                 <div class="tab-pane" id="6">
                   <h2><%= image_tag "Status/inProgress.png", :size=>"50x50"%> In Progress</h2>
                   <div class="span9">
-                    <% if !@inProgress.nil? %>
+                    <% if @inProgress.count > 0 %>
                       <% @inProgress.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
                           <div class="span3" style="float: left; height: 350px; width: 200px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
@@ -69,12 +69,12 @@ jQuery(function() {
                         <% end %>
                       <% end %>
                     <% else %>
-                      @user.first_name is not doing any projects as of now.
+                      <%= @user.first_name %> is not doing any projects as of now.
                     <% end %>
                   </div>
                   <hr>
                   <div class="span9">
-                    <% if !@current_orders.nil? %>
+                    <% if @current_orders.count > 0 %>
                       <h2>Accepted Job Requests</h2>
                       <% @current_orders.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
@@ -90,14 +90,14 @@ jQuery(function() {
                         <% end %>
                       <% end %>
                     <% else %>
-                      @user.first_name has no job requests currently in progress.
+                      <%= @user.first_name %> has no job requests currently in progress.
                     <% end %>
                   </div>
                 </div>
                 <div class="tab-pane" id="7">
                   <h2><%= image_tag "Status/accomplished.png", :size=>"50x50"%>Completed</h2>
                   <div class="span9">
-                    <% if !@completed.nil? %>
+                    <% if @completed.count > 0 %>
                       <% @completed.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
                           <div class="span3" style="float: left; height: 350px; width: 200px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
@@ -111,12 +111,12 @@ jQuery(function() {
                         <% end %>
                       <% end %>
                     <% else %>
-                    @user.first_name has not completed any projects yet.
+                      <%= @user.first_name %> has not completed any projects yet.
                     <% end %>
                   </div>
                   <hr>
                   <div class="span9">
-                    <% if !@completed_orders.nil? %>
+                    <% if @completed_orders.count > 0 %>
                       <h2>Accomplished Job Requests</h2>
                       <% @completed_orders.in_groups_of(3, false).each do |group| %>
                         <% group.each do |project| %>
@@ -132,7 +132,7 @@ jQuery(function() {
                         <% end %>
                       <% end %>
                     <% else %>
-                    @user.first_name have not completed any job requests yet. Get to work!
+                      <%= @user.first_name %> has not completed any job requests yet.
                     <% end %>
                   </div>
                 </div>
