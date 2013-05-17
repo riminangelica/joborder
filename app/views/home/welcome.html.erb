@@ -26,18 +26,18 @@ jQuery(function() {
     </ul>
 </div>
       <div class="tab-content">
-        <div class="tab-pane active" id="2">
-          <div>
-            <div class="tabbable-fixed-top">
-                <ul class="nav nav-pills pull-right">
+        <div class="tab-pane active" id="1">
+              <div class="tabbable-fixed-top">
+                  <div class="span10">
+                <ul class="nav nav-pills text-center">
                 <li style="padding-top:10px; padding-left:10px;" class="active"><a href="#5" data-toggle="tab">Pending <%= "(#{@pending.length})" %></a></li>
                 <li style="padding-top:10px"class=""><a href="#6" data-toggle="tab">In Progress</a></li>
                 <li style="padding-top:10px" class=""><a href="#7" data-toggle="tab">Completed</a></li>
-              </ul>
+            </ul>
+        <div>
               <div class="tab-content">
 
                 <div class="tab-pane active" id="5">
-                   <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
                   <div class="CSSTableGenerator">
                     <% if !@pending.nil? %>
                       <table>
@@ -60,7 +60,6 @@ jQuery(function() {
                   </div>
                 </div>
                 <div class="tab-pane" id="6">
-                  <h2><%= image_tag "Status/inProgress.png", :size=>"50x50"%> In Progress</h2>
                   <div class="span9">
                     <% if !@inProgress.nil? %>
                       <% @inProgress.in_groups_of(3, false).each do |group| %>
@@ -102,7 +101,6 @@ jQuery(function() {
                   </div>
                 </div>
                 <div class="tab-pane" id="7">
-                  <h2><%= image_tag "Status/accomplished.png", :size=>"50x50"%>Completed</h2>
                   <div class="span9">
                     <% if !@completed.nil? %>
                       <% @completed.in_groups_of(3, false).each do |group| %>
@@ -143,13 +141,12 @@ jQuery(function() {
                     <% end %>
                   </div>
                 </div>
-              </div>
+        </div>
+    </div>
             </div>
           </div>
         </div>
         <div class="tab-pane" id="3">
-          <h3>Project Portfolio</h3> <%=button_to "Edit Portfolio"%>
-          <hr>
           <div class="span9">
             <% @projects.each do |project| %>
             <div style="float: left; height: 500px; width: 25%; margin: 5px; overflow: hidden; background-color: white; padding: 10px; margin-bottom: 10px;">
@@ -163,7 +160,6 @@ jQuery(function() {
         </div>
         <div class="tab-pane" id="4">
           <h3>Job Request Form</h3>
-          </hr>
 
           <%= form_for(:order, :url => { :controller => 'orders',:action => 'new'}) do |f|%> <br>
               <div style="float:left; padding-left:50px">

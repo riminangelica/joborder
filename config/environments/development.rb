@@ -15,14 +15,15 @@ Blog::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-
+ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.smtp_settings = {
     :host => 'smtp.gmail.com',
     :post => '587',
     :user_name => 'nicaminerzz@gmail.com',
     :password => 'nicaminerzz123',
     :authentication => :plain,
-    :tls => true,
     :domain => 'gmail.com'
     :enable_starttls_auto => true
 }
