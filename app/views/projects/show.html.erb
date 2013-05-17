@@ -3,7 +3,7 @@
 		<div class="offset1">
 			<div style="padding:10px; background: #20815d; height: 80px; width: 95%; color: #fff; float: center;">
 				<h1><%= @project.title %></h1>
-				<div class="title">by <%= @user.first_name %> <%= @user.surname %></div>
+				<div class="title">by <%= @project.user.first_name %> <%= @project.user.surname %></div>
 				<hr>
 			</div>
 			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: 350px;">
