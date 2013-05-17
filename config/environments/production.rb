@@ -63,6 +63,14 @@ Blog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+ActionMailer::Base.smtp_settings = {
+    :host => 'smtp.gmail.com',
+    :post => '587',
+    :user_name => 'nicaminerzz@gmail.com',
+    :password => 'nicaminerzz123',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
+}
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
