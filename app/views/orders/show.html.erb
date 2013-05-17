@@ -2,24 +2,28 @@
 	<div class="container">
 		<div class="offset1">
 			<div style="padding:10px; background: #20815d; height: 80px; width: 95%; color: #fff; float: center;">
-				<h1><%= @project.title %></h1>
-				<div class="title">by <%= @project.user.first_name %> <%= @project.user.surname %></div>
+				<h1><%= @order.title %></h1>
+				<div class="title">by <%= @order.user.first_name %> <%= @order.user.surname %></div>
 				<hr>
 			</div>
 			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: 350px;">
 				<table>
 					<tr>
-						<td><% if !@project.image_url.nil? %>
-              <%= image_tag @project.image_url, :style => "height: 350px;" %><br><br>
+						<td><% if !@order.image_url.nil? %>
+              <%= image_tag @order.image_url, :style => "height: 350px;" %><br><br>
             <% else %>
-              <% if @project.project_status == "In Progress" %>
+              <% if @order.status == "Pending" %>
+              	<%= image_tag "inprogress.png", :style => "height: 350px;" %><br><br>
+              <% elsif @order.status == "In Progress" %>
                 <%= image_tag "inprogress.png", :style => "height: 350px;" %><br><br>
-              <% elsif @project.project_status == "Completed" %>
+              <% elsif @order.status == "Completed" %>
                 <%= image_tag "goojab.gif", :style => "height: 350px;" %><br><br>
               <% end %>
             <% end %></td>
-						<td style="vertical-align:top;"><b>Description:</b><br><%= @project.description %><br><br>
-						<b>Link:</b> <%= link_to @project.project_link, @project.project_link %></td>
+						<td style="vertical-align:top;">
+							<b>Requested by:</b> <%= @order.first_name %> <%= @order.surname %>
+							<b>Description:</b><br><%= @order.project_description %><br><br>
+						</td>
 					</tr>
 				</table>
 			</div>
