@@ -63,7 +63,10 @@ Blog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-ActionMailer::Base.smtp_settings = {
+ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
     :host => 'smtp.gmail.com',
     :post => '587',
     :user_name => 'nicaminerzz@gmail.com',
