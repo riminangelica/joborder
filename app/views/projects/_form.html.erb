@@ -1,0 +1,11 @@
+  <%= form_for(@project, :html => {:multipart => true}) do |f|%> <br>
+  Created by <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %> <br>
+  Category <%= f.collection_select(:category_id, Category.where(:id => current_user.category.id), :id, :name, :readonly => true, :disabled => true) %> <br>
+  Image <%= f.file_field :image %><br>
+  Title <%= f.text_field :title %> <br>
+  Description <%= f.text_area :description, :style => "height: 100px;" %> <br>
+  Link <%= f.text_field :project_link %> <br>
+  Status <%= f.radio_button :project_status, "In Progress" %> In Progress <%= f.radio_button :project_status, "Completed" %> Completed<br>
+  <%= f.submit "Submit" %>
+  <% end %>
+

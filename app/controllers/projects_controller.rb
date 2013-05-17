@@ -1,37 +1,45 @@
 class ProjectsController < ApplicationController
-def new
+	def new
+		@project = Project.new
+	end
 
-end
+	def create
+		@project = Project.new(params[:project])
+		#@user = User.find_by_id(@project.user_id)
+		#if @user != nil
+			if @project.save
+				flash[:notice] = 'Your project was successfully created.'
+				redirect_to root_path
+			else
+				flash[:notice] = 'Error! Your project was not saved.'
+				render "new"
+			end
+		#else
+			#flash[:notice] = 'Error! Your project was not saved, sorry.'
+			#render "new"
+		#end
+	end
 
+	def edit
+		@project = Project.find params[:id]
+	end
 
-def edit
-  @project = Project.find params[:id]
-end
+  def update
+    @project = Project.find(params[:id])
 
-def update
-  @project = Project.new(params[:project])
-  if @project.save
-    flash[:notice] = "Event created."
-    redirect_to new_project_path
-  else
-    message_error=[]
-    message_error << "<b>Project could not be created:</b>"
-    for x in @eproject.errors.full_messages
-      message_error << "* " + x
-
-      a = message_error.map {|str| "#{str}"}.join("</br>").html_safe
-      flash[:notice] = a
+    if @project.update_attributes(params[:book])
+      flash[:notice] = "Your project was successfully updated."
+      redirect_to root_path
+    else
+      flash[:notice] = "Failed to update"
     end
-    redirect_to new_project_path
   end
-end
 
-def index
-  @user = User.find_by_username(params[:username])
-end
+	def index
+		@user = User.find(params[:id])
+	end
 
-def show
-  @project = Project.find_by_title(params[:title])
-  @user = User.find_by_username(params[:username])
-end
+	def show
+		@project = Project.find(params[:id])
+	end
 end
