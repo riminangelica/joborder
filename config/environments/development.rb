@@ -21,7 +21,9 @@ Blog::Application.configure do
     :post => '587',
     :user_name => 'nicaminerzz@gmail.com',
     :password => 'nicaminerzz123',
-    :authentication => :login,
+    :authentication => :plain,
+    :tls => true,
+    :domain => 'gmail.com'
     :enable_starttls_auto => true
 }
   # Print deprecation notices to the Rails logger
