@@ -15,12 +15,13 @@ Blog::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-ActionMailer::Base.smtp_settings = {
+
+  ActionMailer::Base.smtp_settings = {
     :host => 'smtp.gmail.com',
     :post => '587',
     :user_name => 'nicaminerzz@gmail.com',
     :password => 'nicaminerzz123',
-    :authentication => 'plain',
+    :authentication => :login,
     :enable_starttls_auto => true
 }
   # Print deprecation notices to the Rails logger

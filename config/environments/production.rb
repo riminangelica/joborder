@@ -68,7 +68,7 @@ ActionMailer::Base.smtp_settings = {
     :post => '587',
     :user_name => 'nicaminerzz@gmail.com',
     :password => 'nicaminerzz123',
-    :authentication => 'plain',
+    :authentication => :login,
     :enable_starttls_auto => true
 }
 

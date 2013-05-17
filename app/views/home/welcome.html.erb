@@ -6,26 +6,27 @@ jQuery(function() {
 </script>
 <div style="margin-bottom:50px;width:90%; padding-top:20px">
     <div class="container">
-    <div class="offset1" style="box-shadow:0px 0px 10px #050505">
-        <div style="padding:10px; background: #20815d; height: 100px; color: #fff;">
+    <div class="offset1" style="box-shadow:0px 0px 10px rgb(211,211,211)">
+        <div style="padding:10px; border-top-left-radius:5px; border-top-right-radius:5px; background: #20815d; height: 100px; color: #fff;">
             <div style="float:left">
                 HEHE
             </div>
             <div style="float:left">
-                <h2><%= current_user.first_name %> <%= current_user.surname %></h2> View Profile Edit Profile
+                <h2><%= current_user.first_name %> <%= current_user.surname %></h2>
+                <%=link_to 'View Profile', "/#{current_user.first_name}"%> | <%= link_to ' Edit Profile', "/users/edit"%>
             </div>
 </div>
 <div style="padding:5px; background: #fff;">
 
     <div class="container" style="width:1000px">
     <ul class="nav nav-tabs offset5" style="font-family:Oswald">
-        <li><a href="#2" data-toggle="tab">JOB ORDER HISTORY</a></li>
+        <li><a href="#1" data-toggle="tab">JOB ORDER HISTORY</a></li>
         <li><a href="#3" data-toggle="tab">PERSONAL PORTFOLIO</a></li>
         <li><a href="#4" data-toggle="tab">SUBMIT A JOB ORDER</a></li>
     </ul>
 </div>
       <div class="tab-content">
-        <div class="tab-pane" id="2">
+        <div class="tab-pane active" id="2">
           <div>
             <div class="tabbable-fixed-top">
                 <ul class="nav nav-pills pull-right">
@@ -194,20 +195,7 @@ jQuery(function() {
         <% end %>
     </div>
         </div>
-        <div class ="tab-pane active" id="1">
-            <h3>User Information</h3>
-
-          <h3><%= current_user.first_name %>'s Profile</h3>
-          <b>Full Name: </b> <%= current_user.first_name %> <%= current_user.middle_initial %> <%= current_user.surname %><br>
-          <b>E-mail:</b> <%= current_user.email %><br>
-          <b>Username: </b> <%= current_user.username %><br>
-          <b>Year: </b> <%= current_user.year %><br>
-          <b>School: </b> <%= current_user.school %><br>
-          <b>Course: </b> <%= current_user.course %><br>
-          <b>Organization: </b> <%= current_user.organization %><br>
-          <b>Services offered: </b> <%= current_user.category.name %><br>
-        </div>
-      </div>
+     </div>
     </div>
   </div>
 </div>
