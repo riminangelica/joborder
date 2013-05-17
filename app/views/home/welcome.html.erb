@@ -6,32 +6,37 @@ jQuery(function() {
 </script>
 <div style="margin-bottom:50px;width:90%; padding-top:20px">
     <div class="container">
-    <div class="offset1">
-        <div style="padding:10px; background: #20815d; height: 50px; color: #fff;">
-    <h1><%= current_user.first_name %> <%= current_user.surname %></h1>
-    <hr>
+    <div class="offset1" style="box-shadow:0px 0px 10px #050505">
+        <div style="padding:10px; background: #20815d; height: 100px; color: #fff;">
+            <div style="float:left">
+                HEHE
+            </div>
+            <div style="float:left">
+                <h2><%= current_user.first_name %> <%= current_user.surname %></h2> View Profile Edit Profile
+            </div>
 </div>
-<div style="color: #000;padding:5px; background: #e4e4e4;">
-    <div class="tabbable tabs-left">
-      <ul class="nav nav-tabs nav-stacked">
-        <li class="active"><a href="#1" data-toggle="tab"><%= image_tag "IndexHome/projecticon.png", :size=>"70x70"%></a></li>
-        <li><a href="#2" data-toggle="tab"><%= image_tag "Navbar/home.png", :size=> "70x70"%></a></li>
-        <li><a href="#3" data-toggle="tab"><%= image_tag "Home/JOBORDERbuttoncopy.png", :size=>"70x70"%></a></li>
-        <li><a href="#4" data-toggle="tab"><%= image_tag "Navbar/helpicon.png", :size=>"70x70"%></a></li>
-      </ul>
+<div style="padding:5px; background: #fff;">
+
+    <div class="container" style="width:1000px">
+    <ul class="nav nav-tabs offset5" style="font-family:Oswald">
+        <li><a href="#2" data-toggle="tab">JOB ORDER HISTORY</a></li>
+        <li><a href="#3" data-toggle="tab">PERSONAL PORTFOLIO</a></li>
+        <li><a href="#4" data-toggle="tab">SUBMIT A JOB ORDER</a></li>
+    </ul>
+</div>
       <div class="tab-content">
         <div class="tab-pane" id="2">
           <div>
             <div class="tabbable-fixed-top">
-              <ul class="nav nav-pills">
-                <li><h1>project history</h1></li>
+                <ul class="nav nav-pills pull-right">
                 <li style="padding-top:10px; padding-left:10px;" class="active"><a href="#5" data-toggle="tab">Pending <%= "(#{@pending.length})" %></a></li>
                 <li style="padding-top:10px"class=""><a href="#6" data-toggle="tab">In Progress</a></li>
                 <li style="padding-top:10px" class=""><a href="#7" data-toggle="tab">Completed</a></li>
               </ul>
               <div class="tab-content">
+
                 <div class="tab-pane active" id="5">
-                  <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
+                   <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
                   <div class="CSSTableGenerator">
                     <% if !@pending.nil? %>
                       <table>
