@@ -77,8 +77,6 @@ Blog::Application.configure do
  :enable_starttls_auto => true
  }
  config.action_mailer.default_url_options = {:host => 'nicaminerzz.herokuapp.com'}
-config.action_mailer.default_url_options = { :host => 'nicaminerzz.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
       config.action_mailer.default :charset => 'utf-8'
   # Log the query plan for queries taking more than this (works
