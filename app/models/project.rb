@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-  attr_accessible :image_cache, :category_id, :description, :project_link, :title, :user_id, :project_status, :image, :remove_image, :image_url
+  attr_accessible :image_cache, :category_id, :description, :project_link, :title, :user_id, :project_status, 
+  								:image, :remove_image, :image_url
 
   belongs_to :user
   belongs_to :category

@@ -10,7 +10,11 @@ class OrdersController < ApplicationController
 		@order.status = "Pending"
 			if @order.save
 				flash[:notice] = 'Your order was successfully created.'
-				redirect_to :back
+				if user_signed_in?
+					redirect_to root_path
+				else
+					redirect_to "/users/home"
+				end
 			else
 				flash[:notice] = 'Error! Your order was not saved.'
 				render "new"
@@ -30,7 +34,7 @@ class OrdersController < ApplicationController
 
     if @order.update_attributes(params[:order])
       flash[:notice] = "Your order was successfully updated."
-      redirect_to :back
+      redirect_to root_path
     else
       flash[:notice] = "Failed to update"
     end
@@ -70,14 +74,4 @@ class OrdersController < ApplicationController
 			redirect_to root_path
 		end
 	end
-
-	def destroy
-    @order = Order.find(params[:id])
-    @order.destroy
-
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
-    end
-  end
 end

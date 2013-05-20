@@ -1,13 +1,13 @@
-    <%= form_for(:project, :html => {:multipart => true}) do |f|%> <br>
-        <table>
-            <tr><td>
-                    Created by</td><td> <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr>
-            <tr><td>Category </td><td><%= f.collection_select(:category_id, Category.where(:id => current_user.category.id), :id, :name, :readonly => true, :disabled => true) %></td></tr>
-            <tr><td>Image </td><td><%= f.file_field :image %></td></tr>
-            <tr><td>Title</td><td> <%= f.text_field :title %></td></tr>
-            <tr><td>Description</td><td> <%= f.text_area :description, :style => "height: 100px;" %></td></tr> <br>
-            <tr><td> Link</td><td> <%= f.text_field :project_link %></td></tr>
-            <tr><td>Status</td><td> <%= f.radio_button :project_status, "In Progress" %> In Progress <%= f.radio_button :project_status, "Completed" %> Completed</td></tr>
-        </table>
-                    <%= f.submit "Submit" %>
+<%= form_for(:project, :url => { :controller => 'projects', :action => 'create', :method => :post}, :html => {:multipart => true}) do |f|%> <br>
+<table>
+  <tr><td>
+    Created by</td><td> <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr>
+    <tr><td>Category </td><td><%= f.collection_select(:category_id, Category.where(:id => current_user.category.id), :id, :name, :readonly => true, :disabled => true) %></td></tr>
+    <tr><td>Image </td><td><%= f.file_field :image %></td></tr>
+    <tr><td>Title</td><td> <%= f.text_field :title %></td></tr>
+    <tr><td>Description</td><td> <%= f.text_area :description, :style => "height: 100px;" %></td></tr> <br>
+    <tr><td> Link</td><td> <%= f.text_field :project_link %></td></tr>
+    <tr><td>Status</td><td> <%= f.radio_button :project_status, "In Progress" %> In Progress <%= f.radio_button :project_status, "Completed" %> Completed</td></tr>
+  </table>
+  <%= f.submit "Submit" %>
   <% end %>
