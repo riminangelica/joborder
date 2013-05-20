@@ -9,11 +9,11 @@ jQuery(function() {
     <div class="offset1" style="box-shadow:0px 0px 10px #050505">
       <div style="padding:10px; background: #20815d; height: 100px; color: #fff;">
         <div style="float:left">
-          HEHE
+          <%= image_tag current_user.image_url, :style => "height: 100px" %>
         </div>
         <div style="float:left">
           <h2><%= current_user.first_name %> <%= current_user.surname %></h2>
-          <%=link_to 'View Profile', "/#{current_user.first_name}"%> | <%= link_to ' Edit Profile', "/users/edit"%>
+          <h4 style="padding-left: 20px"><%=link_to 'View Profile', user_path(current_user.id) %> | <%= link_to ' Edit Profile', edit_user_path(current_user.id) %></h4> 
         </div>
       </div>
       <div style="padding:5px; background: #fff;">
@@ -47,10 +47,9 @@ jQuery(function() {
                                 <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
                                 <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
                                 <table><tr><td>
-                                  <%= link_to accept_order_path(id: project.id) do %>
-                                  <button> Accept </button>
-                                  <% end %>
-                                  </td><td><%= button_to "Reject", "#" %></td></tr></table>
+                                  <%= link_to accept_order_path(id: project.id) do %><button> Accept </button><% end %></td><td>
+                                  <%= link_to order_path(id: project.id), :confirm => "Are you sure?", :method => :delete do%><button> Reject </button><% end %>
+                                </td></tr></table>
                               </div>
                             <% end %>
                           <% end %>
@@ -139,9 +138,8 @@ jQuery(function() {
             <div class="tab-pane" id="4">
               <h3>Job Request Form</h3>
               <hr>
-              <%= render "orders/form" %>
-          </div>
-          </div>
+              <%= render "orders/form" %></div>
+            </div>
             <div class="tab-pane" id="1">
               <h3>Add a new project to your Portfolio</h3>
               <%= render "projects/entry" %>

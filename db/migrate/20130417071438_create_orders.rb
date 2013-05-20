@@ -10,8 +10,8 @@ class CreateOrders < ActiveRecord::Migration
       t.text :technicalities
       t.text :aesthetics
       t.string :status
-      t.datetime :target_date
-      t.datetime :start_date
+      t.date :target_date
+      t.date :start_date
       t.integer :number_of_workers
       
       t.timestamps
