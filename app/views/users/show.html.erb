@@ -48,7 +48,7 @@ jQuery(function() {
                         <tr>
                           <% group.each do |project| %>
                           <td>
-                            <div class="title"><%= link_to project.project_name, "/#{current_user.username}/#{project.project_name}" %></div>
+                            <div class="title"><%= link_to project.project_name, "/projects/#{project.id}" %></div>
                             <%= project.category.name %><br>
                             <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
                             <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
@@ -72,7 +72,7 @@ jQuery(function() {
                                         :id=>"capslide_img_cont1", :class=>"fancybox"), project.image_url,
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
-                            <div class="title"><%= link_to project.title, "/#{current_user.username}/#{project.title}" %></div>
+                            <div class="title"><%= link_to project.title, "/projects/#{project.id}" %></div>
                             <%= link_to project.project_link, project.project_link %><br><br>
                           </div>
                         <% end %>
@@ -92,7 +92,7 @@ jQuery(function() {
                               :id=>"capslide_img_cont1"), "inprogress.png",
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
-                            <div class="title"><%= link_to project.project_name, "/#{current_user.username}/#{project.project_name}" %></div>
+                            <div class="title"><%= link_to project.project_name, "/projects/#{project.id}" %></div>
                             <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
                             <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
                           </div>
@@ -113,7 +113,7 @@ jQuery(function() {
                               :id=>"capslide_img_cont1"), project.image_url,
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
-                            <div class="title"><%= link_to project.title, "/#{current_user.username}/#{project.title}" %></div>
+                            <div class="title"><%= link_to project.title, "/projects/#{project.id}" %></div>
                             <%= link_to project.project_link, project.project_link %><br><br>
                           </div>
                         <% end %>
@@ -133,7 +133,7 @@ jQuery(function() {
                               :id=>"capslide_img_cont1"), "goojab.gif",
                               {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                             <div class="ic_category"><%= project.category.name %></div>
-                            <div class="title"><%= link_to project.project_name, "/#{current_user.username}/#{project.project_name}" %></div>
+                            <div class="title"><%= link_to project.project_name, "/projects/#{project.id}" %></div>
                             <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
                             <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
                           </div>
