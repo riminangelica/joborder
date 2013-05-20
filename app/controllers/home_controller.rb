@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   	@inProgress = Project.where(:user_id => current_user.id,
   		:project_status => "In Progress")
   	@projects = Project.where(:user_id => current_user.id)
-  	
+
   	@pending = Order.where(:user_id => current_user.id,
   		:status => "Pending")
   	@current_orders = Order.where(:user_id => current_user.id,

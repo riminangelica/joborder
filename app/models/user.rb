@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :username, :confirmed_at,
                   :year, :course, :school, :organization, :category_id, :first_name, :middle_initial, :surname,
                   :image, :remote_image_url
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   		end
   	else
   		super
-  	end    
+  	end
   end
 
   def password_required?
@@ -55,4 +55,17 @@ class User < ActiveRecord::Base
     super
   end
 end
+
+
+serialize :meta, Hash
+
+  def image_will_change!
+          meta_will_change!
+              @image_changed = true
+                end
+
+    def image_changed?
+            @image_changed
+              end
+
 end
