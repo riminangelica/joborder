@@ -53,7 +53,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  def default_url
-    "/images/fallback/" + [version_name, "goojab.gif"].compact.join('_')
-  end
+  # def default_url
+  #   "/images/fallback" + [version_name, "/goojab.gif"].compact.join('_')
+  # end
 end
