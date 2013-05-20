@@ -63,7 +63,22 @@ Blog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
+ config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.delivery_method = :smtp
+ ActionMailer::Base.raise_delivery_errors = true
+ ActionMailer::Base.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+ :address => 'smtp.gmail.com',
+ :post => '587',
+ :user_name => 'nicaminerzz@gmail.com',
+ :password => 'nicaminerzz123',
+ :authentication => :plain,
+ :domain => 'gmail.com',
+ :enable_starttls_auto => true
+ }
+ config.action_mailer.default_url_options = {:host => 'nicaminerzz.herokuapp.com'}
+    config.action_mailer.perform_deliveries = true
+      config.action_mailer.default :charset => 'utf-8'
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5

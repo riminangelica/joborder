@@ -14,8 +14,20 @@ Blog::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
 
+      :address => 'smtp.gmail.com',
+    :post => '587',
+    :user_name => 'nicaminerzz@gmail.com',
+    :password => 'nicaminerzz123',
+    :authentication => :plain,
+    :domain => 'gmail.com',
+    :enable_starttls_auto => true
+}
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -34,6 +46,8 @@ Blog::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.action_mailer.default_url_options = {
     :host => "localhost:3000"

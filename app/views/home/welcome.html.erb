@@ -12,7 +12,8 @@ jQuery(function() {
           HEHE
         </div>
         <div style="float:left">
-          <h2><%= current_user.first_name %> <%= current_user.surname %></h2> View Profile Edit Profile
+          <h2><%= current_user.first_name %> <%= current_user.surname %></h2>
+          <%=link_to 'View Profile', "/#{current_user.first_name}"%> | <%= link_to ' Edit Profile', "/users/edit"%>
         </div>
       </div>
       <div style="padding:5px; background: #fff;">
