@@ -1,4 +1,4 @@
-<%= form_for(:project, :url => { :controller => 'projects', :action => 'create', :method => :post}, :html => {:multipart => true}) do |f|%> <br>
+<%= form_for(:project, :html => {:multipart => true}) do |f|%> <br>
 <table>
   <tr><td>
     Created by</td><td> <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr>
