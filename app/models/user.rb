@@ -59,10 +59,10 @@ end
 
 serialize :meta, Hash
 
-  def image_will_change!
-          meta_will_change!
-              @image_changed = true
-                end
+  # def image_will_change!
+  #         meta_will_change!
+  #             @image_changed = true
+  #               end
 
     def image_changed?
             @image_changed

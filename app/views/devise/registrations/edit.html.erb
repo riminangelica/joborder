@@ -65,6 +65,8 @@ $(document).ready(function() {
 
               <tr><td width="103px"><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
 
+              <tr><td width="103px"><%= f.label "Profile Picture" %></td><td><%= image_tag current_user.image_url %><br><%= f.file_field :image %></td><tr>
+
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
               <% end %>
