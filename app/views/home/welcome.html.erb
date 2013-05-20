@@ -18,11 +18,11 @@ jQuery(function() {
       </div>
       <div style="padding:5px; background: #fff;">
         <div class="container">
-          <ul class="nav nav-tabs offset4" style="font-family:Oswald; width: 600px;">
+          <ul class="nav nav-tabs offset3" style="font-family:Oswald; width: 700px;">
               <li><a href="#2" data-toggle="tab">JOB ORDER HISTORY</a></li>
               <li><a href="#3" data-toggle="tab">PERSONAL PORTFOLIO</a></li>
-              <li><a href="#4" data-toggle="tab">SUBMIT A JOB REQUEST</a></li>
-              <li><a href="#5" data-toggle="tab">UPLOAD YOUR PROJECT</a></li>
+              <li><a href="#1" data-toggle="tab">ADD TO Y0UR PORTFOLIO</a></li>
+              <li><a href="#4" data-toggle="tab">SUBMIT A JOB ORDER</a></li>
           </ul>
         </div>
           <div class="tab-content">
@@ -40,7 +40,7 @@ jQuery(function() {
                 <b>Services offered: </b> <%= current_user.category.name %><br>
               </div>
             </div> -->
-            <div class="tab-pane" id="2">
+            <div class="tab-pane active" id="2">
               <div>
                 <div class="tabbable-fixed-top">
                   <ul class="nav nav-pills">
@@ -50,7 +50,6 @@ jQuery(function() {
                   </ul>
                   <div class="tab-content">
                     <div class="tab-pane active" id="5">
-                      <h2><%= image_tag "Status/pending.png", :size=>"50x50"%> Pending</h2>
                       <div class="span9">
                         <% if @pending.count > 0 %>
                           <% @pending.in_groups_of(3, false).each do |group| %>
@@ -74,7 +73,6 @@ jQuery(function() {
                       </div>
                     </div>
                     <div class="tab-pane" id="6">
-                      <h2><%= image_tag "Status/inProgress.png", :size=>"50x50"%> In Progress</h2>
                       <div class="span9">
                         <% if @current_orders.count > 0 %>
                           <% @current_orders.in_groups_of(4, false).each do |group| %>
@@ -97,9 +95,8 @@ jQuery(function() {
                       </div>
                     </div>
                     <div class="tab-pane" id="7">
-                      <h2><%= image_tag "Status/accomplished.png", :size=>"50x50"%>Completed</h2>
                       <div class="span9">
-                        <% if @completed_orders.count > 0 %>
+                      <% if @completed_orders.count > 0 %>
                           <% @completed_orders.in_groups_of(3, false).each do |group| %>
                             <% @completed_orders.each do |project| %>
                               <div class="span3" style="float: left; width: 220px; overflow: hidden; background-color: white; padding: 20px; margin-bottom: 10px;">
@@ -119,18 +116,17 @@ jQuery(function() {
                         <% end %>
                       </div>
                     </div>
-                  </div>  
+                  </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="3">
-              <h3>Project Portfolio</h3> <%=button_to "Edit Portfolio"%>
-              <hr>
               <div class="span10">
                 <% if @projects.count > 0 %>
                   <% @completed.in_groups_of(4, false).each do |group| %>
                     <% group.each do |project| %>
-                    <div class="span3" style="float: left; overflow: hidden; background-color: white; padding: 5px; margin-bottom: 10px;">
+                        <%=link_to(project.project_link) do%>
+                            <span>     <div class="span3" style="float: left; overflow: hidden; background-color: rgb(219,219,219); padding: 5px; margin-bottom: 10px; margin-top: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgb(92,92,92)">
                       <% if !project.image_url.nil? %>
                         <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox", :style => "width: 300px;"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                       <% else %>
@@ -143,9 +139,11 @@ jQuery(function() {
                         <div class="ic_category"><%= project.category.name %></div>
                         <div class="title"><%= link_to project.title, "/projects/#{project.id}" %></div>
                         <%= link_to project.project_link, project.project_link %><br><br>
-                      </div>
+                    </div>
+                </span>
                     <% end %>
-                  <% end %>
+                <% end %>
+            <%end%>
                 <% else %>
                   <div style="margin-bottom: 20px">You have not uploaded any projects yet. <%= link_to "Upload one now!", new_project_path %></div>
                 <% end %>
@@ -155,10 +153,11 @@ jQuery(function() {
               <h3>Job Request Form</h3>
               <hr>
               <%= render "orders/form" %>
-            </div>
-            <div class="tab-pane" id="5">
+          </div>
+          </div>
+            <div class="tab-pane" id="1">
               <h3>Add a new project to your Portfolio</h3>
-              <%= render "projects/form" %>
+              <%= render "projects/entry" %>
             </div>
           </div>
         </div>

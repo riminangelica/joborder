@@ -369,3 +369,8 @@ keyframes notification {
                              .nav-tabs, .nav-pills {
                                      text-align:right;
                                  }
+
+td
+{
+    width: 200px;
+}

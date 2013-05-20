@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20130517074116) do
     t.text     "technicalities"
     t.text     "aesthetics"
     t.string   "status"
-    t.datetime "target_date"
-    t.datetime "start_date"
+    t.date     "target_date"
+    t.date     "start_date"
     t.integer  "number_of_workers"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
