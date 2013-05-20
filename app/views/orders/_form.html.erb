@@ -11,8 +11,8 @@
    <tr><td>Number of Workers Needed:</td><td> <%= f.text_field :number_of_workers %> </td><tr>
     <tr><td>Skills Needed:</td><td><%= f.text_field :skills%> </td></tr>
     <tr><td>User/s of Choice:</td><td><%= f.collection_select(:user_id, User.all, :id, :first_name)%> </td></tr>
-    <tr><td>Target Date:</td><td width="100px"> <%= f.date_select :target_date %> </td></tr>
-    <tr><td>Start Date: </td><td><%= f.date_select :start_date %></td></tr>
+    <tr><td>Target Date:</td><td width="100px"> <%= f.text_field :target_date %> </td></tr>
+    <tr><td>Start Date: </td><td><%= f.text_field :start_date %></td></tr>
   </table>
 </div>
 <div style="float:left; padding-left:10px">
