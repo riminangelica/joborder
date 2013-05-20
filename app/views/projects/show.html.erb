@@ -9,17 +9,21 @@
 			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: 350px;">
 				<table>
 					<tr>
-						<td><% if !@project.image_url.nil? %>
-              <%= image_tag @project.image_url, :style => "height: 350px;" %><br><br>
-            <% else %>
-              <% if @project.project_status == "In Progress" %>
-                <%= image_tag "inprogress.png", :style => "height: 350px;" %><br><br>
-              <% elsif @project.project_status == "Completed" %>
-                <%= image_tag "goojab.gif", :style => "height: 350px;" %><br><br>
-              <% end %>
-            <% end %></td>
-						<td style="vertical-align:top;"><b>Description:</b><br><%= @project.description %><br><br>
-						<b>Link:</b> <%= link_to @project.project_link, @project.project_link %></td>
+						<td>
+							<% if !@project.image_url.nil? %>
+	              <%= image_tag @project.image_url, :style => "height: 350px;" %><br><br>
+	            <% else %>
+	              <% if @project.project_status == "In Progress" %>
+	                <%= image_tag "inprogress.png", :style => "height: 350px;" %><br><br>
+	              <% elsif @project.project_status == "Completed" %>
+	                <%= image_tag "goojab.gif", :style => "height: 350px;" %><br><br>
+	              <% end %>
+	            <% end %>
+	          </td>
+						<td style="vertical-align:top;">
+							<b>Description:</b><br><%= @project.description %><br><br>
+							<b>Link:</b> <%= link_to @project.project_link, @project.project_link %>
+						</td>
 					</tr>
 				</table>
 			</div>

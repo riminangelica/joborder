@@ -2,34 +2,40 @@
 	<div class="container">
 		<div class="offset1">
 			<div style="padding:10px; background: #20815d; height: 80px; width: 95%; color: #fff; float: center;">
-				<h1><%= @order.title %></h1>
+				<h1><%= @order.project_name %></h1>
 				<div class="title">by <%= @order.user.first_name %> <%= @order.user.surname %></div>
 				<hr>
 			</div>
 			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: 350px;">
-				<table>
-					<tr>
-						<td><% if !@order.image_url.nil? %>
-              <%= image_tag @order.image_url, :style => "height: 350px;" %><br><br>
-            <% else %>
-              <% if @order.status == "Pending" %>
-              	<%= image_tag "inprogress.png", :style => "height: 350px;" %><br><br>
-              <% elsif @order.status == "In Progress" %>
-                <%= image_tag "inprogress.png", :style => "height: 350px;" %><br><br>
-              <% elsif @order.status == "Completed" %>
-                <%= image_tag "goojab.gif", :style => "height: 350px;" %><br><br>
-              <% end %>
-            <% end %></td>
-						<td style="vertical-align:top;">
-							<b>Requested by:</b> <%= @order.first_name %> <%= @order.surname %>
-							<b>Description:</b><br><%= @order.project_description %><br><br>
-						</td>
-					</tr>
-				</table>
+				<div style="float:left; padding-left:50px">
+					<h4>CLIENT INFORMATION:</h4>
+					<table>
+						<tr><td>First Name:</td><td><%= @order.first_name %></td></tr>
+						<tr><td>Last Name:</td><td> <%= @order.surname %> </td></tr>
+						<tr><td>E-mail:</td><td> <%= @order.email %> </td></tr>
+						<tr><td>Contact No.: </td><td><%= @order.mobile %> </td></tr>
+						<td colspan="2"><h4>STUDENT OF CHOICE:</h4></td>
+						<tr><td>Category:</td><td> <%= @order.category.name %> </td></tr>
+						<tr><td>Number of Workers Needed:</td><td> <%= @order.number_of_workers %> </td></tr>
+						<tr><td>Skills Needed:</td><td><%= @order.skills%> </td></tr>
+						<tr><td>User/s of Choice:</td><td><%= @order.user.first_name %> <%= @order.user.surname %></td></tr>
+						<tr><td>Target Date:</td><td width="100px"> <%= @order.target_date %> </td></tr>
+						<tr><td>Start Date: </td><td><%= @order.start_date %></td></tr>
+					</table>
+				</div>
+				<div style="float:left; padding-left:10px" class="container">
+					<h4>PROJECT DETAILS:</h4>
+					<table>
+						<tr><td>Project Name:</td><td> <%= @order.project_name %></td></tr>
+						<tr><td>Project Description: </td><td><%= @order.project_description %> </td></tr>
+						<tr><td>Technicalities:</td><td><%= @order.technicalities %> </td></tr>
+						<tr><td>Aesthetics: </td><td><%= @order.aesthetics %> </td></tr>
+						<tr><td style="vertical-align: top">Image (optional) </td><td><%= image_tag @order.image_url %></td></tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="haha" style=" font-size: 10px;height:25px; position: fixed; width:100%; bottom:0">
-	<div class="offset11">All rights reserved. Chos.</div>
-</div>
+	<div class="haha" style=" font-size: 10px;height:25px; position: fixed; width:100%; bottom:0">
+		<div class="offset11">All rights reserved. Chos.</div>
+	</div>

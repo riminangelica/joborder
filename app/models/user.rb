@@ -1,17 +1,11 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, #:registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, #:validatable,
+         :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :confirmable, :token_authenticatable,
          :omniauthable, :omniauth_providers => [:twitter, :facebook, :github]
 
@@ -19,10 +13,13 @@ class User < ActiveRecord::Base
   has_many :orders
   belongs_to :category
 
+  mount_uploader :image, ImageUploader
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :username, :confirmed_at,
-                  :year, :course, :school, :organization, :category_id, :first_name, :middle_initial, :surname
+                  :year, :course, :school, :organization, :category_id, :first_name, :middle_initial, :surname,
+                  :image, :remote_image_url
   # attr_accessible :title, :body
 
   validates_presence_of :username
