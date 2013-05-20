@@ -67,11 +67,11 @@ Blog::Application.configure do
  config.action_mailer.delivery_method = :smtp
  ActionMailer::Base.raise_delivery_errors = true
  ActionMailer::Base.perform_deliveries = true
- config.action_mailer.smtp_settings = {
+  config.action_mailer.smtp_settings = {
  :address => 'smtp.gmail.com',
  :post => '587',
  :user_name => 'nicaminerzz@gmail.com',
- :password => 'nicaminerzz@gmail.com',
+ :password => 'nicaminerzz123',
  :authentication => :plain,
  :domain => 'gmail.com',
  :enable_starttls_auto => true
