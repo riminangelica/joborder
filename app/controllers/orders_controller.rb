@@ -9,8 +9,8 @@ class OrdersController < ApplicationController
 		#if @user != nil
 		@order.status = "Pending"
 			if @order.save
-				redirect_to root_path
 				flash[:notice] = 'Your order was successfully created.'
+				redirect_to :back
 			else
 				flash[:notice] = 'Error! Your order was not saved.'
 				render "new"
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
 
     if @order.update_attributes(params[:order])
       flash[:notice] = "Your order was successfully updated."
-      redirect_to root_path
+      redirect_to :back
     else
       flash[:notice] = "Failed to update"
     end
