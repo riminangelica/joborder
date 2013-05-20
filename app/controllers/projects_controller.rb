@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
-    if @project.update_attributes(params[:book])
+    if @project.update_attributes(params[:project])
       flash[:notice] = "Your project was successfully updated."
       redirect_to root_path
     else

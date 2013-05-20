@@ -17,6 +17,13 @@ Blog::Application.routes.draw do
   root :to => "home#welcome"
 
   resources :projects
+  resources :orders do
+    member do
+      get "accept"
+      get "finish"
+      get "revise"
+    end
+  end
 
   resources :users
   # The priority is based upon order of creation:
