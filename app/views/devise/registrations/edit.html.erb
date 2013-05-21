@@ -1,129 +1,65 @@
-<script type="text/javascript">
-$(document).ready(function() {
-  $("#ADMU").hide();
-  $("#DLSU").hide();
-  $("#UPD").hide();
-  $("#UST").hide();
+<div class="container">
+  <div class="span10">
+    <div class="container">
+      <div style="background:#20815d; padding:5px; width: 1000px">
+        <h3>Edit <%= resource_name.to_s.humanize %></h3>
+      </div>
+      <div style ="padding: 5px; padding-left:20px;">
+        <div style="float:left;">
+          <h3>User Information</h3>
+          <table>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= devise_error_messages! %>
 
-  $('#schools').val(onchange=function(){
-    var schools = $('#schools');
+            <tr><td width="103px"><%= f.label :username %></td><td><%= f.text_field :username, :autofocus => true %></td></tr>
 
-    if (schools.val()=="Ateneo de Manila University"){
-      $("#ADMU").show();
-      $("#DLSU").hide();
-      $("#UPD").hide();
-      $("#UST").hide();
-    }
-    else if (schools.val()=="De La Salle University"){
-      $("#ADMU").hide();
-      $("#DLSU").show();
-      $("#UPD").hide();
-      $("#UST").hide();
-    }
-    else if (schools.val()=="University of the Philippines - Diliman"){
-      $("#ADMU").hide();
-      $("#DLSU").hide();
-      $("#UPD").show();
-      $("#UST").hide();
-    }
-    else if (schools.val()=="University of Santo Tomas"){
-      $("#ADMU").hide();
-      $("#DLSU").hide();
-      $("#UPD").hide();
-      $("#UST").show();
-    }
+            <tr><td width="103px"><%= f.label :first_name %></td><td><%= f.text_field :first_name %></td></tr>
 
-  });
-});
-</script>
+            <tr><td width="103px"><%= f.label :middle_initial %></td><td><%= f.text_field :middle_initial %></td></tr>
 
-<div class="row-fluid">
-  <div class="span10 offset1">
-    <div class="tabbable tabs-left">
-      <ul class="nav nav-tabs nav-stacked">
-        <li class="active"><a href="#1" data-toggle="tab">Edit Account</a>
-        <li><a href="#2" data-toggle="tab">Edit Portfolio</a></li>
-        <li><a href="#2" data-toggle="tab">WOO</a></li>
-        <li><a href="#2" data-toggle="tab">WOO</a></li>
-        <li><a href="#2" data-toggle="tab">WOO</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="1">
-          <div>
-            <h2>Edit <%= resource_name.to_s.humanize %></h2>
-            <table>
-              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-                <%= devise_error_messages! %>
+            <tr><td width="103px"><%= f.label :surname %></td><td><%= f.text_field :surname %></td></tr>
 
-              <tr><td width="103px"><%= f.label :username %></td><td><%= f.text_field :username, :autofocus => true %></td></tr>
+            <tr><td width="103px"><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
 
-              <tr><td width="103px"><%= f.label :first_name %></td><td><%= f.text_field :first_name %></td></tr>
-
-              <tr><td width="103px"><%= f.label :middle_initial %></td><td><%= f.text_field :middle_initial %></td></tr>
-
-              <tr><td width="103px"><%= f.label :surname %></td><td><%= f.text_field :surname %></td></tr>
-
-              <tr><td width="103px"><%= f.label :email %></td><td><%= f.email_field :email %></td></tr>
-
-              <tr><td width="103px"><%= f.label "Profile Picture" %></td><td><%= image_tag current_user.image_url %><br><%= f.file_field :image %></td><tr>
+            <tr><td width="103px"><%= f.label "Profile Picture" %></td><td><%= image_tag current_user.image_url %><br><%= f.file_field :image %></td><tr>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
-              <% end %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></td></tr>
+                <% end %>
 
-              <tr><td><%= f.label :school %></td><td><%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools", :selected => current_user.school) %></tr></td>
-            </table>
+                <tr><td><%= f.label :school %></td><td><%= f.select(:school, [["Ateneo de Manila University"],["De La Salle University"],["University of the Philippines - Diliman"],["University of Santo Tomas"]], {}, :id => "schools", :selected => current_user.school) %></tr></td>
+                <tr><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']], :selected => current_user.course) %></td></tr>
+                <tr><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]], :selected => current_user.organization) %></td></tr>
+                <tr><td><%= f.label "Services offered" %></td><td><%= f.collection_select(:category_id, Category.all, :id, :name) %></td></tr>
+              </table>
+            </div> 
 
-            <table id="ADMU">
-              <tr id="ADMU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ONE BIG FIGHT'],['BS CONYO']], :selected => current_user.course) %></td></tr>
-              <tr id="ADMU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["Org 0"],["Org 1"],["Org2"]], :selected => current_user.organization) %></td></tr>
-            </table>
+            <div style="padding-left: 20px;float:left;i">
+              <h3>Password</h3>
+              <table>
 
-            <table id="DLSU">
-              <tr id="DLSU"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS RICH KID'],['BS COOL KID']], :selected => current_user.course) %></td></tr>
-              <tr id="DLSU"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgL 0","OrgL 0"],["OrgL 1"],["OrgL 2"]], :selected => current_user.organization) %></td></tr>
-            </table>
 
-            <table id="UPD">
-              <tr id="UPD"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS SCHOLAR'],['BS NG BAYAN']], :selected => current_user.course) %></td></tr>
-              <tr id="UPD"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUP 0"],["OrgUP 1"],["OrgUP 2"]], :selected => current_user.organization) %></td></tr>
-            </table>
+                <tr><td><%= f.label "New password" %></td>
+                  <td><%= f.password_field :password, :autocomplete => "off" %><br><small>Leave blank to remain unchanged.</small></td>
+                </tr>
+                <tr><td><%= f.label :password_confirmation %></td><td><%= f.password_field :password_confirmation %></td></tr>
 
-            <table id="UST">
-              <tr id="UST"><td width="103px"><%= f.label :course %></td><td><%= f.select(:course, [['BS ARCHI'],['BS BAHA LAGI']], :selected => current_user.course) %></td></tr>
-              <tr id="UST"><td width="103px"><%= f.label :organization %></td><td><%= f.select(:organization, [["OrgUST 0"],["OrgUST 1"],["OrgUST 2"]], :selected => current_user.organization) %></td></tr>
-            </table>
-
-            <table>
-              <tr><td><%= f.label "Services offered" %></td><td><%= f.collection_select(:category_id, Category.all, :id, :name) %></td></tr>
-            </table>
-
-            <hr>
-
-            <table>
-              <tr><td><%= f.label "New password" %></td>
-                <td><%= f.password_field :password, :autocomplete => "off" %><br><small>Leave blank to remain unchanged.</small></td>
-              </tr>
-              <tr><td><%= f.label :password_confirmation %></td><td><%= f.password_field :password_confirmation %></td></tr>
-
-              <% if f.object.encrypted_password.present? %>
+                <% if f.object.encrypted_password.present? %>
                 <tr><td><%= f.label :current_password %></td><td>
                   <%= f.password_field :current_password %><br><small>Enter password to confirm changes.</small></td></tr>
-              <% end %>
-              <tr><td><%= f.submit "Update" %></td></tr>
-            <% end %>
-            </table>
-            <h3>Cancel my account</h3>
+                  <% end %>
+                  <tr><td><%= f.submit "Update" %></td></tr>
+                  <% end %>
+                </table>
+                <hr>
+                <h3>Cancel my account</h3>
 
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+                <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
-            <%= link_to "Back", :back %>
+                <%= link_to "Back", :back %>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="tab pane" id="2">
-          HEHEHEHEHE
-        </div>
-      </div>
+      </div>  
     </div>
-  </div>
-</div>
