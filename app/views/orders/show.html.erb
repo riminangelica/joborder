@@ -6,32 +6,40 @@
 				<div class="title">by <%= @order.user.first_name %> <%= @order.user.surname %></div>
 				<hr>
 			</div>
-			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: 350px;">
-				<div style="float:left; padding-left:50px">
-					<h4>CLIENT INFORMATION:</h4>
-					<table>
-						<tr><td>First Name:</td><td><%= @order.first_name %></td></tr>
-						<tr><td>Last Name:</td><td> <%= @order.surname %> </td></tr>
-						<tr><td>E-mail:</td><td> <%= @order.email %> </td></tr>
-						<tr><td>Contact No.: </td><td><%= @order.mobile %> </td></tr>
-						<td colspan="2"><h4>STUDENT OF CHOICE:</h4></td>
-						<tr><td>Category:</td><td> <%= @order.category.name %> </td></tr>
-						<tr><td>Number of Workers Needed:</td><td> <%= @order.number_of_workers %> </td></tr>
-						<tr><td>Skills Needed:</td><td><%= @order.skills%> </td></tr>
-						<tr><td>User/s of Choice:</td><td><%= @order.user.first_name %> <%= @order.user.surname %></td></tr>
-						<tr><td>Target Date:</td><td width="100px"> <%= @order.target_date %> </td></tr>
-						<tr><td>Start Date: </td><td><%= @order.start_date %></td></tr>
-					</table>
+			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: auto; float: left;">
+				<%= image_tag @order.image_url, :style => "width: 90%; align: center;" %>
+				<div style="float:left; padding-left:10px">	
+				<!-- <table> -->
+					<!-- <tr> -->
+						<!-- <td width="20%"> -->
+							<h4>CLIENT INFORMATION:</h4>
+							<table>
+								<tr><td>First Name:</td><td><%= @order.first_name %></td></tr>
+								<tr><td>Last Name:</td><td> <%= @order.surname %> </td></tr>
+								<tr><td>E-mail:</td><td> <%= @order.email %> </td></tr>
+								<tr><td>Contact No.: </td><td><%= @order.mobile %> </td></tr>
+								<td colspan="2"><h4>STUDENT OF CHOICE:</h4></td>
+								<tr><td>Category:</td><td> <%= @order.category.name %> </td></tr>
+								<tr><td>Number of Workers Needed:</td><td> <%= @order.number_of_workers %> </td></tr>
+								<tr><td>Skills Needed:</td><td><%= @order.skills%> </td></tr>
+								<tr><td>User/s of Choice:</td><td><%= @order.user.first_name %> <%= @order.user.surname %></td></tr>
+								<tr><td>Target Date:</td><td width="100px"> <%= @order.target_date %> </td></tr>
+								<tr><td>Start Date: </td><td><%= @order.start_date %></td></tr>
+							</table>
+						<!-- </td> -->
 				</div>
-				<div style="float:left; padding-left:10px" class="container">
-					<h4>PROJECT DETAILS:</h4>
-					<table>
-						<tr><td>Project Name:</td><td> <%= @order.project_name %></td></tr>
-						<tr><td>Project Description: </td><td><%= @order.project_description %> </td></tr>
-						<tr><td>Technicalities:</td><td><%= @order.technicalities %> </td></tr>
-						<tr><td>Aesthetics: </td><td><%= @order.aesthetics %> </td></tr>
-						<tr><td style="vertical-align: top">Image (optional) </td><td><%= image_tag @order.image_url %></td></tr>
-					</table>
+				<div style="width: 55%; padding-left:400px" class="container">
+						<!-- <td width="5000px"> -->
+							<h4>PROJECT DETAILS:</h4>
+							<b>Project Name: </b><%= @order.project_name %><br><br>
+							<b>Project Description:</b><br><%= @order.project_description %><br><br>
+				</div>
+				<div style="float:left; padding-left:10px; width: 40%;">
+					<h4>ORDER DETAILS:</h4>
+					<b>Technicalities:</b><br><%= @order.technicalities %><br><br>
+				</div>
+				<div style="width: 55%; padding-left:420px; padding-top:37.5px" class="container">
+					<b>Aesthetics:</b><br><%= @order.aesthetics %>
 				</div>
 			</div>
 		</div>
