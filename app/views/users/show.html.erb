@@ -9,7 +9,11 @@ jQuery(function() {
             <div style="padding:10px; background: #20815d; color: #fff; border-top-left-radius:5px; border-top-right-radius:5px">
                 <div class="container">
                     <div style="float:left">
-                        <%= image_tag "no_avatar.png"%>
+                        <% if !current_user.image_url.nil? %>
+                          <%= image_tag current_user.image_url, :style => "height: 200px" %>
+                        <% else %>
+                          <%= image_tag "no_avatar.png", :style => "height: 200px" %>
+                        <% end %>
                     </div>
                 <div style="float:left; padding-left:10px">
                     <h3><%= @user.first_name %> <%= @user.surname %></h3>
@@ -34,33 +38,10 @@ jQuery(function() {
           <div>
             <div class="tabbable-fixed-top">
               <ul class="nav nav-pills">
-                <li style="padding-top:10px; padding-left:10px;" class="active"><a href="#5" data-toggle="tab">Pending <%= "(#{@pending.length})" %></a></li>
                 <li style="padding-top:10px"class=""><a href="#6" data-toggle="tab">In Progress</a></li>
                 <li style="padding-top:10px" class=""><a href="#7" data-toggle="tab">Completed</a></li>
               </ul>
               <div class="tab-content">
-                <div class="tab-pane active" id="5">
-                  <div class="span9">
-                    <% if @pending.count > 0 %>
-                    <% @pending.in_groups_of(3, false).each do |group| %>
-                    <% group.each do |project| %>
-                    <div class="span3" style="float: left; width: 220px; overflow: hidden; background-color: white; padding: 20px; margin-bottom: 10px;">
-                      <div class="title"><%= link_to project.project_name, "/orders/#{project.id}" %></div>
-                      <div class="ic_category"><%= project.category.name %></div>
-                      <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
-                      <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
-                      <table><tr><td>
-                        <%= link_to accept_order_path(id: project.id) do %><button> Accept </button><% end %></td><td>
-                        <%= link_to order_path(id: project.id), :confirm => "Are you sure?", :method => :delete do%><button> Reject </button><% end %>
-                      </td></tr></table>
-                    </div>
-                    <% end %>
-                    <% end %>
-                    <% else %>
-                    <div style="margin-bottom: 20px">You have no pending job requests. Hooray!</div>
-                    <% end %>
-                  </div>
-                </div>
                 <div class="tab-pane" id="6">
                   <div class="span9">
                     <% if @current_orders.count > 0 %>
