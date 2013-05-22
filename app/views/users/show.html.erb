@@ -31,48 +31,120 @@ jQuery(function() {
 </div>
       <div class="tab-content">
         <div class="tab-pane active" id="Job-Order-History">
-              <div>
-                <div class="tabbable-fixed-top">
-                  <ul class="nav nav-pills">
-                    <li style="padding-top:10px; padding-left:10px;" class="active"><a href="#5" data-toggle="tab">Pending <%= "(#{@pending.length})" %></a></li>
-                    <li style="padding-top:10px"class=""><a href="#6" data-toggle="tab">In Progress</a></li>
-                    <li style="padding-top:10px" class=""><a href="#7" data-toggle="tab">Completed</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="5">
+          <div>
+            <div class="tabbable-fixed-top">
+              <ul class="nav nav-pills">
+                <li style="padding-top:10px; padding-left:10px;" class="active"><a href="#5" data-toggle="tab">Pending <%= "(#{@pending.length})" %></a></li>
+                <li style="padding-top:10px"class=""><a href="#6" data-toggle="tab">In Progress</a></li>
+                <li style="padding-top:10px" class=""><a href="#7" data-toggle="tab">Completed</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="5">
+                  <div class="span9">
+                    <% if @pending.count > 0 %>
+                    <% @pending.in_groups_of(3, false).each do |group| %>
+                    <% group.each do |project| %>
+                    <div class="span3" style="float: left; width: 220px; overflow: hidden; background-color: white; padding: 20px; margin-bottom: 10px;">
+                      <div class="title"><%= link_to project.project_name, "/orders/#{project.id}" %></div>
+                      <div class="ic_category"><%= project.category.name %></div>
+                      <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
+                      <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
+                      <table><tr><td>
+                        <%= link_to accept_order_path(id: project.id) do %><button> Accept </button><% end %></td><td>
+                        <%= link_to order_path(id: project.id), :confirm => "Are you sure?", :method => :delete do%><button> Reject </button><% end %>
+                      </td></tr></table>
+                    </div>
+                    <% end %>
+                    <% end %>
+                    <% else %>
+                    <div style="margin-bottom: 20px">You have no pending job requests. Hooray!</div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="tab-pane" id="6">
+                  <div class="span9">
+                    <% if @current_orders.count > 0 %>
+                    <% @current_orders.in_groups_of(4, false).each do |group| %>
+                    <% group.each do |project| %>
+                    <div class="span3" style="float: left; width: 220px; overflow: hidden; background-color: white; padding: 20px; margin-bottom: 10px;">
+                      <% if project.image_url.nil? %>
+                      <%= link_to (image_tag "inprogress.png", :title=>project.project_name,
+                        :id=>"capslide_img_cont1"), "inprogress.png",
+                        {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+                        <% else %>
+                        <%= link_to (image_tag project.image_url, :title=>project.project_name,
+                          :id=>"capslide_img_cont1"), "inprogress.png",
+                          {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+                          <% end %>
+                          <div class="ic_category"><%= project.category.name %></div>
+                          <div class="title"><%= link_to project.project_name, "/orders/#{project.id}" %></div>
+                          <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
+                          <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
+                          <%= link_to finish_order_path(id: project.id) do %><button> Finish </button><% end %>
+                        </div>
+                        <% end %>
+                        <% end %>
+                        <% else %>
+                        <div style="margin-bottom: 20px">You have no job requests currently in progress.</div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="7">
                       <div class="span9">
-                        <% if @pending.count > 0 %>
-                          <% @pending.in_groups_of(3, false).each do |group| %>
-                            <% group.each do |project| %>
-                              <div class="span3" style="float: left; width: 220px; overflow: hidden; background-color: white; padding: 20px; margin-bottom: 10px;">
-                                <div class="title"><%= link_to project.project_name, "/orders/#{project.id}" %></div>
-                                <div class="ic_category"><%= project.category.name %></div>
-                                <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
-                                <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %>
+                        <% if @completed_orders.count > 0 %>
+                        <% @completed_orders.in_groups_of(3, false).each do |group| %>
+                        <% @completed_orders.each do |project| %>
+                        <div class="span3" style="float: left; width: 220px; overflow: hidden; background-color: white; padding: 20px; margin-bottom: 10px;">
+                          <% if !project.image_url.nil? %>
+                          <%=link_to (image_tag project.image_url, :title=>project.project_name, :id=>"capslide_img_cont1", :class=>"fancybox", :style => "width: 300px;"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+                          <% else %>
+                          <%=link_to (image_tag "goojab.gif", :title=>project.project_name, :id=>"capslide_img_cont1", :class=>"fancybox"), "goojab.gif", {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+                          <% end %>
+                          <div class="ic_category"><%= project.category.name %></div>
+                          <div class="title"><%= link_to project.project_name, "/orders/#{project.id}" %></div>
+                          <b>Requested by:</b> <%= project.first_name %> <%= project.surname %><br>
+                          <b>Target date:</b> <%= project.target_date.strftime("%b %d, %Y") %><br>
+                          <%= link_to revise_order_path(id: project.id) do %><button> Revise this project </button><% end %>
+                        </div>
+                        <% end %>
+                        <% end %>
+                        <% else %>
+                        <div style="margin-bottom: 20px">You have not completed any job requests yet. Get to work!</div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="tab-pane" id="3">
-              <div class="span10">
-                <% if @projects.count > 0 %>
-                  <% @completed.in_groups_of(4, false).each do |group| %>
-                    <% group.each do |project| %>
-                        <%=link_to(project.project_link) do%>
-                            <span>     <div class="span3" style="float: left; overflow: hidden; background-color: rgb(219,219,219); padding: 5px; margin-bottom: 10px; margin-top: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgb(92,92,92)">
-                      <% if !project.image_url.nil? %>
-                        <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox", :style => "width: 300px;"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
-                      <% else %>
-                        <% if project.project_status == "In Progress" %>
-                          <%=link_to (image_tag "inprogress.png", :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox"), "inprogress.png", {:id =>"capslide_img_cont1", :class => "fancybox"} %>
-                        <% elsif project.project_status == "Completed" %>
-                          <%=link_to (image_tag "goojab.gif", :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox"), "goojab.gif", {:id =>"capslide_img_cont1", :class => "fancybox"} %>
-                        <% end %>
-                      <% end %>
-                        <div class="ic_category"><%= project.category.name %></div>
-                        <div class="title"><%= link_to project.title, "/projects/#{project.id}" %></div>
-                        <%= link_to project.project_link, project.project_link %><br><br>
-                    </div>
-                </span>
-                    <% end %>
-                <% end %>
+          <div class="span10">
+            <% if @projects.count > 0 %>
+            <% @completed.in_groups_of(4, false).each do |group| %>
+            <% group.each do |project| %>
+            <%=link_to(project.project_link) do%>
+            <span><div class="span3" style="float: left; overflow: hidden; background-color: rgb(219,219,219); padding: 5px; margin-bottom: 10px; margin-top: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgb(92,92,92)">
+              <% if !project.image_url.nil? %>
+              <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox", :style => "width: 300px;"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+              <% else %>
+              <% if project.project_status == "In Progress" %>
+              <%=link_to (image_tag "inprogress.png", :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox"), "inprogress.png", {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+              <% elsif project.project_status == "Completed" %>
+              <%=link_to (image_tag "goojab.gif", :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox"), "goojab.gif", {:id =>"capslide_img_cont1", :class => "fancybox"} %>
+              <% end %>
+              <% end %>
+              <div class="ic_category"><%= project.category.name %></div>
+              <div class="title"><%= link_to project.title, "/projects/#{project.id}" %></div>
+              <%= link_to project.project_link, project.project_link %><br><br>
+            </div>
+          </span>
+          <% end %>
+          <% end %>
+          <%end%>
+          <% else %>
+          <div style="margin-bottom: 20px">You have not uploaded any projects yet. <%= link_to "Upload one now!", new_project_path %></div>
+          <% end %>
+        </div>
         </div>
         <div class="tab-pane" id="4">
           <h3>Job Request Form</h3>
