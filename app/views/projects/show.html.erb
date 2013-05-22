@@ -20,12 +20,12 @@
 	              <% end %>
 	            <% end %>
 	          </td>
-						<td style="vertical-align:top;">
+						<td style="vertical-align:top;" class="span6">
 							<b>Status:</b> <%= @project.project_status %><br><br>
 							<b>Description:</b><br><%= @project.description %><br><br>
 							<b>Link:</b> <%= link_to @project.project_link, @project.project_link %><br><br>
-							<div align="right"><%= link_to edit_project_path(id: @project.id) do %><button> Edit </button><% end %>
-								<%= link_to project_path(id: @project.id), :confirm => "Are you sure? There is no undo!", :method => :delete do%><button> Delete </button><% end %>
+							<div align="right"><%= link_to edit_project_path(@project) do %><button> Edit </button><% end %>
+								<%= link_to project_path(@project), :confirm => "Are you sure? There is no undo!", :method => :delete do%><button> Delete </button><% end %>
 						</td>
 					</tr>
 				</table>

@@ -222,12 +222,13 @@
 
   <div class="navbar">
     <div class="navbar-fixed">
-        <div class="offset1">
-            <ul class="nav">
+        <div class="offset1" style="margin-right: 130px;">
+           
            <% if user_signed_in? %>
+            <ul class="nav">
            <li><%= link_to "GO HOME #{current_user.first_name}, YOU'RE DRUNK", root_path %></li>
-           <li><strong><br><br>Hello, <%= current_user.username %>!</strong/></li>
-           <li style="color:transparent; padding-left:600px;">. </li>
+           <li><strong><br><br>Hello, <%= current_user.username %>!</strong/></li></ul>
+           <ul class="nav pull-right">
            <li class="dropdown" id="accountmenu">
            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=image_tag 'Devise/settings.png', :size=>"30x30", :style=>"margin:0px" %><b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -238,13 +239,15 @@
               <hr>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             </ul>
+           </ul>
           </li>
           <% else %>
+          <ul class="nav">
           <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %></li>
           <li><%= link_to "about", new_user_registration_path %> </li>
-          <li><%= link_to "Contact", new_user_session_path %></li>
-          <li style="padding-left:530px; color:transparent">.</li>
-          <li> <%= link_to "Sign up", "/users/sign_up"%></li>
+          <li><%= link_to "Contact", new_user_session_path %></li></ul>
+          <ul class="nav pull-right">
+          <li> <%= link_to "Sign up", "/users/sign_up"%></li></ul>
           <% end %>
         </ul>
       </div>

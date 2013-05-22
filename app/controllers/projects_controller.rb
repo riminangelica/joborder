@@ -29,10 +29,16 @@ class ProjectsController < ApplicationController
 
     if @project.update_attributes(params[:project])
       flash[:notice] = "Your project was successfully updated."
-      redirect_to root_path
+      redirect_to project_path(@project)
     else
       flash[:notice] = "Failed to update"
     end
+  end
+
+  def destroy
+  	@project = Project.find(params[:id])
+  	@project.destroy
+  	redirect_to root_path
   end
 
 	def index

@@ -7,7 +7,17 @@
 				<hr>
 			</div>
 			<div style="color: #000;padding:10px; background: #e4e4e4; width: 95%; height: auto; float: left;">
-				<%= image_tag @order.image_url, :style => "width: 90%; align: center;" %>
+				<div style="width: 95%">
+					<center>
+					<% if !@order.image_url.nil? %>
+						<%= image_tag @order.image_url, :style => "height: 300px; float: center;" %>
+					<% elsif @order.status == "In Progress" %>
+						<%= image_tag "inprogress.png", :style => "height: 300px; float: center;" %>
+					<% elsif @order.status == "Completed" %>
+						<%= image_tag "goojab.gif", :style => "height: 300px; float: center;" %>
+					<% end %>
+					</center>
+				</div>
 				<div style="float:left; padding-left:10px">	
 				<!-- <table> -->
 					<!-- <tr> -->
