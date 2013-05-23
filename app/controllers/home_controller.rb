@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
 
   def welcome
-    if user_signed_in?
+    # if user_signed_in?
     	@completed = Project.where(:user_id => current_user.id,
     		:project_status => "Completed")
     	@inProgress = Project.where(:user_id => current_user.id,
@@ -26,9 +26,9 @@ class HomeController < ApplicationController
       if current_user.category.blank? or current_user.category.nil?
         redirect_to edit_user_registration_path
       end
-    else
-      redirect_to new_user_session_path
-    end
+    # else
+    #   redirect_to new_user_session_path
+    # end
   end
 
 end
