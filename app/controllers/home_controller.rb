@@ -22,6 +22,10 @@ class HomeController < ApplicationController
     		:status => "In Progress")
     	@completed_orders = Order.where(:user_id => current_user.id,
     		:status => "Completed")
+
+      if current_user.category.blank? or current_user.category.nil?
+        redirect_to edit_user_registration_path
+      end
     else
       redirect_to new_user_session_path
     end
