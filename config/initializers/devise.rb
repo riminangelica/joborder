@@ -217,7 +217,7 @@ Devise.setup do |config|
   # config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_CONSUMER_SECRET"]
   config.omniauth :twitter, "dPIF7E1ZZLNcszjF8f4VA", "ijmTM1b5Bg7wa1zSkny17rnMSJSeHLuewZtMTwW5O8"
   config.omniauth :facebook, "506402586089126", "41c2661c25539ed5486374f93ab3193f"
-  config.omniauth :github, '19f94bb1d48857b34dde', 'be5cb90943b8fb33d8915c449f9ee49f69e59265', :scope => 'user, public_repo'
+  config.omniauth :github, 'eb9f0f8b2f6d545610b8', '6f24f6c731b8583e1d99695dcdf59fa941e6f282'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
