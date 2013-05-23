@@ -9,8 +9,8 @@ jQuery(function() {
             <div style="padding:10px; background: #20815d; color: #fff; border-top-left-radius:5px; border-top-right-radius:5px">
                 <div class="container">
                     <div style="float:left">
-                        <% if !current_user.image_url.nil? %>
-                          <%= image_tag current_user.image_url, :style => "height: 200px" %>
+                        <% if !@user.image_url.nil? %>
+                          <%= image_tag @user.image_url, :style => "height: 200px" %>
                         <% else %>
                           <%= image_tag "no_avatar.png", :style => "height: 200px" %>
                         <% end %>
