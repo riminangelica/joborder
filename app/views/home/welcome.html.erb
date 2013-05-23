@@ -154,10 +154,10 @@ jQuery(function() {
             </div>
             <div class="tab-pane" id="1">
               <h3>Add a new project to your Portfolio</h3>
-              <%= form_for(:project, :url => {:controller => 'projects', :actions => 'create', :method => :post}, :html => {:multipart => true}) do |f|%> <br>
+              <%= form_for(@project, :url => {:controller => 'projects', :actions => 'create', :method => :post}, :html => {:multipart => true}) do |f|%> <br>
               <table>
                 <tr><td>
-                  Created by</td><td> <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr>
+                  <!-- Created by</td><td> <#%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr> -->
                   <tr><td>Category </td><td><%= f.collection_select(:category_id, Category.where(:id => current_user.category.id), :id, :name, :readonly => true, :disabled => true) %></td></tr>
                   <tr><td>Image </td><td><%= f.file_field :image %></td></tr>
                   <tr><td>Title</td><td> <%= f.text_field :title %></td></tr>
