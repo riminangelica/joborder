@@ -233,10 +233,6 @@
            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=image_tag 'Devise/settings.png', :size=>"30x30", :style=>"margin:0px" %><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-              <li><%= link_to 'Edit Profile'%></li>
-              <hr>
-              <li><%= link_to 'Help'%></li>
-              <hr>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             </ul>
            </ul>
