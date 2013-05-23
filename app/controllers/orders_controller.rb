@@ -11,11 +11,7 @@ class OrdersController < ApplicationController
 		@order.status = "Pending"
 			if @order.save
 				flash[:notice] = 'Your order was successfully created.'
-				if user_signed_in?
-					redirect_to root_path
-				else
-					redirect_to "/users/home"
-				end
+				redirect_to order_path(@order)
 			else
 				flash[:notice] = 'Error! Your order was not saved.'
 				render "new"
