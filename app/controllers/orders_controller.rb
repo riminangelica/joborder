@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate_user!, except: [:new, :create]
   def new
 		@order = Order.new
 	end

@@ -22,6 +22,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+group :development do
+  gem 'quiet_assets'
+end
 
 gem 'jquery-rails'
 
@@ -53,6 +56,7 @@ gem 'fancybox-rails'
 # For flash notice
 gem 'bootstrap_notify', :git => "https://github.com/jclay/bootstrap-notify-gem.git"
 gem 'bootstrap-sass', '~> 2.3.1.0'
+
 
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
