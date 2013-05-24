@@ -35,12 +35,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [ :email, :username ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [ :email, :username ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -215,8 +215,10 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   # config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_CONSUMER_SECRET"]
+  require "omniauth-facebook"
   config.omniauth :twitter, "dPIF7E1ZZLNcszjF8f4VA", "ijmTM1b5Bg7wa1zSkny17rnMSJSeHLuewZtMTwW5O8"
-  config.omniauth :facebook, "506402586089126", "41c2661c25539ed5486374f93ab3193f"
+  config.omniauth :facebook, "506402586089126", "41c2661c25539ed5486374f93ab3193f", 
+      {:scope => 'email', :secure_image_url => true, :display => 'popup'} 
   config.omniauth :github, 'eb9f0f8b2f6d545610b8', '6f24f6c731b8583e1d99695dcdf59fa941e6f282', :scope => 'user'
   # config.omniauth :github, ENV['eb9f0f8b2f6d545610b8'], ENV['6f24f6c731b8583e1d99695dcdf59fa941e6f282'], scope: 'user'
 

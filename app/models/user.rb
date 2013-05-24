@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
   		user.provider = auth.provider
   		user.uid = auth.uid
   		user.username = auth.info.nickname
+      user.email = auth.info.email
+      user.first_name = auth.info.first_name
+      user.surname = auth.info.last_name
+      user.image = auth.info.image :confirmable => false
   	end
   end
 
