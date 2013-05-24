@@ -17,7 +17,7 @@ jQuery(function() {
         </div>
         <div style="float:left">
           <h2><%= current_user.first_name %> <%= current_user.surname %></h2>
-          <h4 style="padding-left: 20px"><%=link_to 'View Profile', user_path(id: current_user.id) %> | <%= link_to ' Edit Profile', edit_user_registration_path %></h4> 
+          <h4 style="padding-left: 20px"><%=link_to 'View Profile', user_path(id: current_user.id) %> | <%= link_to ' Edit Profile', edit_user_registration_path %></h4>
         </div>
       </div>
       <div style="padding:5px; background: #fff;">
@@ -124,7 +124,7 @@ jQuery(function() {
                   <% @completed.in_groups_of(4, false).each do |group| %>
                     <% group.each do |project| %>
                       <%=link_to(project.project_link) do%>
-                        <span><div class="span3" style="float: left; overflow: hidden; background-color: rgb(219,219,219); padding: 5px; margin-bottom: 10px; margin-top: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgb(92,92,92)">
+                        <span><div class="span3" style="float: left; overflow: hidden; background-color: rgb(219,219,219); padding: 5px; margin-bottom: 10px; margin-top: 10px; border-radius: 5px;">
                         <% if !project.image_url.nil? %>
                           <%=link_to (image_tag project.image_url, :title=>project.title, :id=>"capslide_img_cont1", :class=>"fancybox", :style => "width: 300px;"), project.image_url, {:id =>"capslide_img_cont1", :class => "fancybox"} %>
                         <% else %>
@@ -148,16 +148,16 @@ jQuery(function() {
               </div>
             </div>
             <div class="tab-pane" id="4">
-              <h3>Job Request Form</h3>
-              <hr>
               <%= render "orders/form" %></div>
             </div>
             <div class="tab-pane" id="1">
-              <h3>Add a new project to your Portfolio</h3>
+                <div class="span10" style="margin-bottom: 10px;background:#ff8500">
+                <div class="span offset2" style=" background-image: url(orange.png);background:white; padding-left:40px">
+
               <%= form_for(:project, :url => {:controller => 'projects', :actions => 'create', :method => :post}, :html => {:multipart => true}) do |f|%> <br>
               <table>
                 <tr><td>
-                  Created by</td><td> <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr>
+                  CREATED BY:</td><td> <%= f.collection_select(:user_id, User.where(:id => current_user.id), :id, :first_name, :readonly => true, :disabled => true) %></td></tr>
                   <tr><td>Category </td><td><%= f.collection_select(:category_id, Category.where(:id => current_user.category.id), :id, :name, :readonly => true, :disabled => true) %></td></tr>
                   <tr><td>Image </td><td><%= f.file_field :image %></td></tr>
                   <tr><td>Title</td><td> <%= f.text_field :title %></td></tr>
@@ -165,8 +165,14 @@ jQuery(function() {
                   <tr><td> Link</td><td> <%= f.text_field :project_link %></td></tr>
                   <tr><td>Status</td><td> <%= f.radio_button :project_status, "In Progress" %> In Progress <%= f.radio_button :project_status, "Completed" %> Completed</td></tr>
               </table>
+<br>
+              <center>
                 <%= f.submit "Submit" %>
-              <% end %>
+            </center>
+            <% end %>
+
+        </div>
+    </div>
             </div>
           </div>
         </div>

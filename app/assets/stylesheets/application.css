@@ -49,6 +49,10 @@ body{
 
 }
 
+.span.offset2
+{
+    background-image: url('orange.png');
+}
 #carousel {
         width: 480px;
         overflow:hidden;
