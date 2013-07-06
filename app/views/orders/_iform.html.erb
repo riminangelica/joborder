@@ -1,0 +1,25 @@
+<%= form_for(:order, :url => { :controller => 'orders',:action => 'create', :method => :post}) do |f|%> <br>
+<div style="float:left; padding-left:50px">
+  <table>
+    <tr><td>Requesting Cluster:</td><td> <%= f.collection_select(:category_id, Category.all, :id, :name)%> </td></tr>
+    <tr><td><h4>REPRESENTATIVE INFORMATION:</h4></td></tr>
+    <tr><td>First Name:</td><td><%= f.text_field :first_name %></td></tr>
+    <tr><td>Last Name:</td><td> <%= f.text_field :surname%> </td></tr>
+    <tr><td>E-mail:</td><td> <%= f.text_field :email %> </td></tr>
+    <tr><td>Contact No.: </td><td><%= f.text_field :mobile %> </td></tr>
+    <tr><td><h4>On which channels will information or promotional material be disseminated?</h4></td></tr>
+    <tr><td>Target Date:</td><td width="100px"> <%= f.text_field :target_date %> </td></tr>
+    <tr><td>Start Date: </td><td><%= f.text_field :start_date %></td></tr>
+    </table>
+  </div>
+  <div style="float:left; padding-left:10px">
+    <h4>PROJECT DETAILS:</h4>
+    <table>
+      <tr><td>Project Name/Department:</td><td> <%= f.text_field :project_name %></td></tr>
+      <tr><td>Project Description: </td><td><%= f.text_area :project_description, :style=>"height:100px" %> </td></tr>
+      <tr><td>Target Receipients:</td><td><%= f.text_area :technicalities, :style=>"height:100px" %> </td></tr>
+      <tr><td>Frequency of Dissemination: </td><td><%= f.text_area :aesthetics, :style=>"height:100px" %> </td></tr>
+      <tr><td style="vertical-align: top">Material: (Please provide a copy of all material being requested for approval.) </td><td><%= f.file_field :image %></td></tr>
+      <tr><td></td><td align="right"><%= f.submit "Post Job Order" %></td></tr> <br>
+    </table>
+    <% end %>

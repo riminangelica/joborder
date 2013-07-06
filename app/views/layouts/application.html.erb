@@ -223,7 +223,7 @@
   <div class="navbar">
     <div class="navbar-fixed">
         <div class="offset1" style="margin-right: 130px;">
-           
+
            <% if user_signed_in? %>
             <ul class="nav">
            <li><%= link_to "GO HOME #{current_user.first_name}, YOU'RE DRUNK", root_path %></li>
@@ -241,7 +241,8 @@
           <ul class="nav">
           <li><%= link_to "GO HOME USER, YOU'RE DRUNK", root_path %></li>
           <ul class="nav pull-right">
-          <li> <%= link_to "Sign up", "/users/sign_up"%></li></ul>
+              <li> <%= link_to "DEPARTMENTS", "/users/sign_up"%></li>
+              <li> <%= link_to "SERVICES", "/users/sign_up"%> </li></ul>
           <% end %>
         </ul>
       </div>
